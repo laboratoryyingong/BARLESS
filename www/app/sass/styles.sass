@@ -1,0 +1,210 @@
+//@import headPartial.sass
+
+$font-stack: Helvetica, sans-serif
+$primary-color: #3361ab
+$grey: #85888d
+
+=border-radius($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius:    $radius
+    -ms-border-radius:     $radius
+    border-radius:         $radius
+
+//slide test
+.normalise
+    font: 100%/1.4em 'Helvetica Neue',Helvetica,Arial,sans-serif
+    margin: 0 auto
+    color: #222
+    -webkit-text-size-adjust: none
+    -webkit-font-smoothing: antialiased
+
+html
+    @extend .normalise
+    font-family: sans-serif
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+    height: 100%
+    overflow: hidden
+
+
+body
+    @extend .normalise
+    background: #fff
+    margin: 0
+    width: auto !important
+    height: 100%
+    overflow: hidden !important
+
+
+
+.menu
+    background-image: linear-gradient(145deg, #1D1F20, #404348)
+
+a
+    color: $grey
+    text-decoration: none
+    &:hover
+        color: #fff
+
+.menu
+    a
+    color: $grey
+    &:hover
+        color: #fff
+
+.menu-header
+    border-bottom: 1px solid #2a2d2f
+    padding: 20px
+    background-size: 32px
+
+.menu-header-title
+    font-weight: 400
+    letter-spacing: 0.5px
+    margin: 0
+    color: $grey
+
+.menu-section
+    margin: 25px 0
+
+.menu-section-title
+    text-transform: uppercase
+    color: $grey
+    font-weight: 200
+    font-size: 13px
+    letter-spacing: 1px
+    padding: 0 20px
+    margin: 0
+
+.menu-section-list
+    padding: 0
+    margin: 10px 0 0 20px
+    list-style: none
+
+.panel
+    text-align: center
+    padding-top: 5px
+    min-height: 100%
+    background: white
+    left: 0px
+
+.panel-header
+    height: 3em
+
+.slideout-menu
+    position: fixed
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+    z-index: 0
+    width: 256px
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+    display: none
+
+.slideout-panel
+    position: relative
+    z-index: 1
+
+.slideout-open
+    overflow: hidden
+
+.slideout-open
+    body
+        overflow: hidden
+
+.slideout-open
+    .slideout-menu
+        overflow: hidden
+
+.slideout-open
+    .slideout-menu
+        display: block
+
+.js-slideout-toggle
+    float: left
+
+    //*****************
+    //three line menu
+    //*****************
+.box-shadow-menu
+    height: 1em
+    font-size: 3em
+    position: relative
+    padding-left: 1.5em
+    &:before
+        content: ""
+        position: absolute
+        left: 0.5em
+        top: 0.25em
+        width: 1em
+        height: 0.15em
+        background: $grey
+        box-shadow: 0 0.25em 0 0 $grey,0 0.5em 0 0 $grey
+
+.notificationIcon
+    position: relative
+    float: left
+    padding: 1em 1em 0 2em
+
+    //*******************
+    //box container css
+    //*******************
+.box
+    width: 100%
+    height: 100%
+    background: white
+
+.box div
+    padding: 10px
+    border: solid 2px blue
+
+
+    //*******************
+    //item css
+    //*******************
+
+.items
+    height: 100px
+    overflow: hidden
+    list-style: none
+    position: absolute
+    display: block
+    margin: 10px 0 10px 0
+    width: 120%
+    left: -15%
+    -webkit-transition: all .5s ease
+    -moz-transition: all .5s ease
+    -ms-transition: all .5s ease
+    -o-transition: all .5s ease
+    transition: all .5s ease
+    &:hover
+        cursor: pointer
+
+.items-active
+    -webkit-transition: all .5s ease
+    -moz-transition: all .5s ease
+    -ms-transition: all .5s ease
+    -o-transition: all .5s ease
+    transition: all .5s ease
+    left: 5%
+
+.delBtn
+    opacity: 0
+
+.delBtn-active
+    opacity: 1
+
+//***************
+//main section + barcode
+//***************
+
+.mainSection
+    height: 200px
+    width: 100%
+
+.Barcode
+    border: solid 3px blue
+
+.divider
+    margin-bottom: 100px
