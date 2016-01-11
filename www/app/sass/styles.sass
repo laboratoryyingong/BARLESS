@@ -165,7 +165,7 @@ a
     //*******************
 
 .items
-    height: 100px
+    height: atuo
     overflow: hidden
     list-style: none
     position: absolute
@@ -190,7 +190,9 @@ a
     left: 5%
 
 .delBtn
-    opacity: 0
+    opacity: 1
+    &:hover
+        cursor: pointer
 
 .delBtn-active
     opacity: 1
@@ -199,12 +201,82 @@ a
 //main section + barcode
 //***************
 
+.slider
+    position: absolute
+    background: red
+    width: 133%
+
+
+
 .mainSection
     height: 200px
     width: 100%
 
 .Barcode
-    border: solid 3px blue
+    border: solid 1px black
+    padding: 5px
+    &:hover
+        cursor: pointer
 
 .divider
     margin-bottom: 100px
+
+//*********************
+//test unit
+//*********************
+
+.list
+    list-style: none outside none
+    margin: 10px 0 30px
+
+.item
+    width: 100%
+    height: 150px
+    padding: 5px 10px
+    margin: 5px 0
+    border: 2px solid #444
+    border-radius: 5px
+    background-color: #EA8A8A
+
+    font-size: 1.1em
+    font-weight: bold
+    text-align: center
+//    cursor: move
+
+.logList
+    margin-top: 20px
+    width: 150px
+    min-height: 200px
+    padding: 5px 15px
+    border: 5px solid #000
+    border-radius: 15px
+
+.logList
+    &:before
+        content: 'log'
+        padding: 0 5px
+        position: relative
+        top: -1.1em
+        background-color: #FFF
+
+.floatleft
+    float: left
+
+.clear
+    clear: both
+
+.myHandle
+    display: inline-block
+    height: 20px
+    width: 20px
+    vertical-align: right
+    background-color: yellow
+    cursor: move
+
+.myDelBtn
+    display: inline-block
+    height: 20px
+    width: 20px
+    vertical-align: right
+    background-color: purple
+    cursor: pointer
