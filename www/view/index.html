@@ -95,7 +95,6 @@
         <div class="col-xs-11">
             <ul ui-sortable="sortableOptions" ng-model="list" class="list">
                   <li ng-repeat="item in list" class="item">
-                        {{item.text}}
                         <div class="row slider">
                               <div class="col-xs-3 Barcode">Barcode Card Exp
                                   <button class="btn btn-small" data-toggle="modal" data-target="#myModal">Show</button>
@@ -105,8 +104,9 @@
                               <div class="col-xs-3 delBtn">Del Btn</div>
                         </div>
                         <div class="row">
-                            <div class="myHandle col-xs-4"></div>
-                            <button class="myDelBtn col-xs-4"></button>
+                            <div class="myHandle col-xs-2"></div>
+                            <button class="myDelBtn col-xs-2"></button>
+                            <div class="title col-xs-8">{{item.text}}</div>
                         </div>
                   </li>
             </ul>
