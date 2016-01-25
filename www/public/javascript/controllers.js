@@ -1,11 +1,11 @@
 var myApp = angular.module('todoApp', ['ui.sortable']);
 
+
 myApp.filter('greet', function(){
     return function(name){
       return 'Hello, ' + name + '!';
     };
 });
-
 
 myApp.directive('customModals', function( $http, $compile){
     return {
@@ -32,13 +32,12 @@ myApp.directive('customModals', function( $http, $compile){
 
 });
 
-
-
 myApp.controller('sortableController', function($scope) {
+
 
   var tmpList = [];
 
-  for (var i = 1; i <= 3; i++){
+  for (var i = 1; i <= 1; i++){
     tmpList.push({
       text: 'BarCode ' + i,
       value: i
@@ -103,4 +102,8 @@ myApp.controller('sortableController', function($scope) {
       $scope.sortingLog.push('Stop: ' + logEntry);
     }
   };
+
+//  $scope.alert = function(){
+//      console.log('test button functions');
+//    };
 });

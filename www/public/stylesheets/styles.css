@@ -165,10 +165,10 @@ a {
   opacity: 1; }
 
 .slider {
-  margin: 35px;
+  margin: 35px 0 35px 0;
   position: absolute;
-  background: red;
-  width: 100%; }
+  width: 133%;
+  background: red; }
 
 .mainSection {
   height: 200px;

@@ -1,3 +1,4 @@
 /platforms/
-/.sass-cache/
-/www/.sass-cache/
+/.sass-cache/*
+/www/.sass-cache/*
+
