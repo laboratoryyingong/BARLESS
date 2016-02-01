@@ -36,8 +36,7 @@ myApp.controller('sortableController', function($scope) {
 
 
   var tmpList = [];
-
-  for (var i = 1; i <= 1; i++){
+  for (var i = 1; i <= 3; i++){
     tmpList.push({
       text: 'BarCode ' + i,
       value: i
@@ -45,7 +44,6 @@ myApp.controller('sortableController', function($scope) {
   }
 
   $scope.list = tmpList;
-
 
   $scope.sortingLog = [];
 
@@ -103,7 +101,9 @@ myApp.controller('sortableController', function($scope) {
     }
   };
 
-//  $scope.alert = function(){
-//      console.log('test button functions');
-//    };
+//new test
+  $scope.test = function(){
+       console.log("button clicked");
+   };
+
 });

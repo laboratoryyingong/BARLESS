@@ -35,14 +35,19 @@ mc.on("panleft panright tap press", function(e){
     }
 });
 
-try{
-    // On mouse-over, execute myFunction
-    function myFunction() {
-        delBtn.click(function(e){
-            console.log("del this div");
-        }); // Click on the checkbox
+//trun pouchdb + test all functions
+var db = new PouchDB('testDB',{adapter : 'websql'});
+var doc = {
+    "_id" : "rec1",
+    "name" : "Card Name",
+    "type" : "QR-Code",
+    "note" : ["note1", "note2", "note3"],
+    "_attachments" : {
+        "myattachement.txt" : {
+            "content_type" : "text/plain",
+            data: "aGVsbG8gd29ybGQ="
+        }
     }
-}
-catch(e){
-    console.log(e);
-}
+};
+
+db.get('rec1');
