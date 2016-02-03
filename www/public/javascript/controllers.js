@@ -11,6 +11,7 @@ var doc = {
             }
         }
     };
+var db;
 
 myApp.filter('greet', function(){
     return function(name){
@@ -134,6 +135,7 @@ LocalDatabaseController.prototype.init = function(){
 LocalDatabaseController.prototype.information = function(){
 //    alert("show database information");
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
+//    Whether PouchDB is using the SQLite Plugin or not
         db.info();
 }
 
@@ -141,4 +143,15 @@ LocalDatabaseController.prototype.insertDoc = function(){
 //    alert("insert new doc to DB");
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.put(doc);
+}
+
+LocalDatabaseController.prototype.updateDoc = function(){
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+        db.get('rec1').then(function(doc){
+            return db.put({
+                _id: 'rec1',
+                _rev: doc._rev,
+                name: "New Card Name"
+            });
+        });
 }
