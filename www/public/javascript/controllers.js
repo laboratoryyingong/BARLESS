@@ -1,5 +1,16 @@
 var myApp = angular.module('todoApp', ['ui.sortable']);
-
+var doc = {
+        "_id" : "rec1",
+        "name" : "Card Name",
+        "type" : "QR-Code",
+        "note" : ["note1", "note2", "note3"],
+        "_attachments" : {
+            "myattachement.txt" : {
+                "content_type" : "text/plain",
+                data: "aGVsbG8gd29ybGQ="
+            }
+        }
+    };
 
 myApp.filter('greet', function(){
     return function(name){
@@ -36,7 +47,7 @@ myApp.controller('sortableController', function($scope) {
 
 
   var tmpList = [];
-  for (var i = 1; i <= 3; i++){
+  for (var i = 1; i <= 1; i++){
     tmpList.push({
       text: 'BarCode ' + i,
       value: i
@@ -107,3 +118,27 @@ myApp.controller('sortableController', function($scope) {
    };
 
 });
+
+myApp.controller('LocalDatabaseController', ['$scope', LocalDatabaseController]);
+
+function LocalDatabaseController($scope){
+    // $scope
+
+}
+
+LocalDatabaseController.prototype.init = function(){
+//    alert("init local database");
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+}
+
+LocalDatabaseController.prototype.information = function(){
+//    alert("show database information");
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+        db.info();
+}
+
+LocalDatabaseController.prototype.insertDoc = function(){
+//    alert("insert new doc to DB");
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+        db.put(doc);
+}

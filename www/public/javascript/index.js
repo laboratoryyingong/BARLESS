@@ -35,19 +35,5 @@ mc.on("panleft panright tap press", function(e){
     }
 });
 
-//trun pouchdb + test all functions
-var db = new PouchDB('testDB',{adapter : 'websql'});
-var doc = {
-    "_id" : "rec1",
-    "name" : "Card Name",
-    "type" : "QR-Code",
-    "note" : ["note1", "note2", "note3"],
-    "_attachments" : {
-        "myattachement.txt" : {
-            "content_type" : "text/plain",
-            data: "aGVsbG8gd29ybGQ="
-        }
-    }
-};
 
-db.get('rec1');
+
