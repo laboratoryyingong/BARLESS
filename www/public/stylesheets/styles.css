@@ -165,10 +165,8 @@ a {
   opacity: 1; }
 
 .slider {
-  margin: 35px 0 35px 0;
   position: absolute;
-  width: 133%;
-  background: red; }
+  width: 100%; }
 
 .mainSection {
   height: 200px;
@@ -183,21 +181,39 @@ a {
 .divider {
   margin-bottom: 100px; }
 
+.barCodeContainer {
+  height: 500px; }
+
 .list {
   list-style: none outside none;
   margin: 10px 0 30px; }
 
 .item {
   width: 100%;
-  height: 250px;
-  padding: 5px 10px;
-  margin: 5px 0;
-  border: 2px solid #444;
-  border-radius: 5px;
-  background-color: #EA8A8A;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center; }
+  background-color: #fafafa;
+  margin-top: 0;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 0.3s linear;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
+  @media screen and (min-width: 320px) {
+    .item {
+      height: 150px; } }
+  @media screen and (max-width: 1200px) {
+    .item {
+      height: 200px; } }
+  .item:hover {
+    background-color: #fafafa; }
+  .item:after {
+    position: absolute;
+    z-index: 2;
+    height: 5px;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    background-color: #242c42;
+    transition: all 0.5s ease; }
 
 .logList {
   margin-top: 20px;
@@ -225,7 +241,6 @@ a {
   height: 20px;
   width: 20px;
   vertical-align: right;
-  background-color: yellow;
   cursor: move; }
 
 .myDelBtn {
@@ -235,5 +250,36 @@ a {
   vertical-align: right;
   background-color: purple;
   cursor: pointer; }
+
+.viewHead {
+  height: 40px;
+  display: block; }
+
+.viewIcon {
+  color: #242c42;
+  font-size: 20px;
+  float: left;
+  margin-left: 30px; }
+  .viewIcon:hover {
+    cursor: pointer; }
+
+.viewTitle {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-transform: uppercase; }
+
+.viewContent {
+  height: 60px;
+  display: block; }
+  .viewContent .row img {
+    height: 60px; }
+
+.viewFooter {
+  height: 30px;
+  display: block; }
+  .viewFooter span {
+    float: right;
+    margin-right: 25px;
+    margin-top: 15px; }
 
 /*# sourceMappingURL=styles.css.map */

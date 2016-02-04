@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="public/stylesheets/styles.css">
   <link rel="stylesheet" href="public/libs/bootstrap-3.3.5/css/bootstrap.css">
+  <link rel="stylesheet" href="public/font/font-awesome-4.5.0/css/font-awesome.css">
 
 </head>
 
@@ -91,27 +92,47 @@
 
 
 <!--test unit-->
-    <div ng-controller="sortableController">
+    <div ng-controller="sortableController" class="barCodeContainer">
         <div class="row">
             <div class="col-xs-11">
                 <ul ui-sortable="sortableOptions" ng-model="list" class="list">
                     <li ng-repeat="item in list" class="item">
-                        <div class="container">
-                             <div class="slider" id="slider" >
+                        <span class="container" id={{item.id}}>
+                            <div class="viewHead">
+                                <div class="row">
+                                    <span class="viewIcon"><span class="myHandle"><i class="fa fa-arrows-alt"></i></span></span>
+                                    <span class="viewIcon"><i class="fa fa-trash-o"></i></span>
+                                    <div class="viewTitle"><span>{{item.text}}</span></div>
+                                </div>
+                            </div>
+                            <div class="viewContent">
+                                <div class="row">
+                                    <div class="col-xs-4"><img src="public/img/barcode1.png" /></div>
+                                    <div class="col-xs-4"><img src="public/img/credit-card.jpg" /></div>
+                                    <div class="col-xs-4"><img src="public/img/note.png" /></div>
+                                </div>
+                            </div>
+                            <div class="viewFooter">
+                                <div class="row">
+                                    <span>Barcode: NBS2931234-1231</span>
+                                    <span><i class="fa fa-credit-card-alt"></i></span>
+                                </div>
+                            </div>
+<!--
+                            <div class="slider row" id="slider" >
                                   <div class="col-xs-3 Barcode">Barcode Card Exp
                                       <button class="btn btn-small" data-toggle="modal" data-target="#myModal">Show</button>
                                   </div>
                                   <div class="col-xs-3 Barcode">Barcode icon</div>
                                   <div class="col-xs-3 Barcode">Barcode note</div>
-                                  <div class="col-xs-3 delBtn">Del Btn</div>
                             </div>
-                            <div>
+                            <div class="row">
                                 <div class="myHandle col-xs-2"></div>
                                 <button class="myDelBtn col-xs-2" ng-click="test()">Click me</button>
                                 <div class="title col-xs-8">{{item.text}}</div>
-
                             </div>
-                        </div>
+-->
+                        </span>
                     </li>
                 </ul>
             </div>

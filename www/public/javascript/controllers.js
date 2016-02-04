@@ -48,8 +48,9 @@ myApp.controller('sortableController', function($scope) {
 
 
   var tmpList = [];
-  for (var i = 1; i <= 1; i++){
+  for (var i = 1; i <= 3; i++){
     tmpList.push({
+      id: 'item' + i,
       text: 'BarCode ' + i,
       value: i
     });
@@ -153,5 +154,10 @@ LocalDatabaseController.prototype.updateDoc = function(){
                 _rev: doc._rev,
                 name: "New Card Name"
             });
+        }).then(function(response){
+//            handle response
+            console.log(response);
+        }).catch(function(err){
+            console.log("Received new err" + err)
         });
 }
