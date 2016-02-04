@@ -8,6 +8,7 @@ $grey: #85888d
 $small-screen: 320px
 $large-screen: 1200px
 
+
 =border-radius($radius)
     -webkit-border-radius: $radius
     -moz-border-radius:    $radius
@@ -237,9 +238,9 @@ a
     width: 100%
 
     @media screen and (min-width: $small-screen)
-        height: 150px
-    @media screen and (max-width: $large-screen)
         height: 200px
+    @media screen and (max-width: $large-screen)
+        height: 250px
 
     background-color: #fafafa
     margin-top: 0
@@ -301,32 +302,34 @@ a
 .viewHead
     height: 40px
     display: block
+    padding: 10px
 
 .viewIcon
+    margin-right: 10px
     color: #242c42
     font-size: 20px
     float: left
-    margin-left: 30px
     &:hover
         cursor: pointer
 
 .viewTitle
-    font-family: sans-serif
+    float: left
     font-size: 20px
     text-transform: uppercase
+    span
+        font-family: "Lato"
 
 .viewContent
-    height: 60px
+    padding: 15px
+    height: auto
     display: block
     .row
         img
             height: 60px
 
 .viewFooter
+    margin-top: 15px
     height: 30px
     display: block
     span
-        float: right
-        margin-right: 25px
-        margin-top: 15px
-
+        text-align: center
