@@ -126,7 +126,6 @@ myApp.controller('LocalDatabaseController', ['$scope', LocalDatabaseController])
 
 function LocalDatabaseController($scope){
     // $scope
-
 }
 
 LocalDatabaseController.prototype.init = function(){
