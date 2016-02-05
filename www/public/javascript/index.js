@@ -42,7 +42,7 @@ $(document).ready(function() {
     setTimeout(function(){
 //	    console.log("timeout");
         setTimeout(layout(), 500);
-    }, 2500);
+    }, 2000);
 
     function layout(){
         $('body').addClass('loaded');
