@@ -94,6 +94,8 @@ a
 
 .panel-header
     height: 3em
+    margin-bottom: 1em
+    margin-top: 1em
 
 .slideout-menu
     position: fixed
@@ -137,6 +139,7 @@ a
     font-size: 3em
     position: relative
     padding-left: 1.5em
+    padding-right: 1em
     &:before
         content: ""
         position: absolute
@@ -150,7 +153,11 @@ a
 .notificationIcon
     position: relative
     float: left
-    padding: 1em 1em 0 2em
+    padding: 0.6em 3em 0 0
+    i
+        font-size: 35px
+    &:hover
+        cursor: pointer
 
     //*******************
     //box container css
@@ -228,7 +235,7 @@ a
 //*********************
 
 .barCodeContainer
-    height: 500px
+    height: auto
 
 .list
     list-style: none outside none
@@ -240,7 +247,7 @@ a
     @media screen and (min-width: $small-screen)
         height: 200px
     @media screen and (max-width: $large-screen)
-        height: 250px
+        height: 150px
 
     background-color: #fafafa
     margin-top: 0
@@ -289,6 +296,11 @@ a
     width: 20px
     vertical-align: right
     cursor: move
+    i
+        font-size: 30px
+        color: black
+        display: table-cell
+        vertical-align: top
 
 .myDelBtn
     display: inline-block
@@ -300,24 +312,28 @@ a
 
 //view css
 .viewHead
-    height: 40px
+    background-color: #e5e5e5
+    height: 50px
     display: block
     padding: 10px
+    color: #fafafa
 
 .viewIcon
-    margin-right: 10px
-    color: #242c42
+    margin-right: 20px
     font-size: 20px
     float: left
-    &:hover
-        cursor: pointer
+    i
+        color: black
+        font-size: 30px
 
 .viewTitle
-    float: left
+    margin-right: 20px
     font-size: 20px
-    text-transform: uppercase
-    span
-        font-family: "Lato"
+    float: right
+    i
+        font-size: 30px
+    &:hover
+        cursor: pointer
 
 .viewContent
     padding: 15px
@@ -333,3 +349,11 @@ a
     display: block
     span
         text-align: center
+        font-size: 15px
+
+.viewMove
+    i
+        color: black
+        font-size: 30px
+        display: table-cell
+        vertical-align: top

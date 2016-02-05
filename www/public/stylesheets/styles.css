@@ -69,7 +69,9 @@ a {
   left: 0px; }
 
 .panel-header {
-  height: 3em; }
+  height: 3em;
+  margin-bottom: 1em;
+  margin-top: 1em; }
 
 .slideout-menu {
   position: fixed;
@@ -106,7 +108,8 @@ a {
   height: 1em;
   font-size: 3em;
   position: relative;
-  padding-left: 1.5em; }
+  padding-left: 1.5em;
+  padding-right: 1em; }
   .box-shadow-menu:before {
     content: "";
     position: absolute;
@@ -120,7 +123,11 @@ a {
 .notificationIcon {
   position: relative;
   float: left;
-  padding: 1em 1em 0 2em; }
+  padding: 0.6em 3em 0 0; }
+  .notificationIcon i {
+    font-size: 35px; }
+  .notificationIcon:hover {
+    cursor: pointer; }
 
 .box {
   width: 100%;
@@ -182,7 +189,7 @@ a {
   margin-bottom: 100px; }
 
 .barCodeContainer {
-  height: 500px; }
+  height: auto; }
 
 .list {
   list-style: none outside none;
@@ -202,7 +209,7 @@ a {
       height: 200px; } }
   @media screen and (max-width: 1200px) {
     .item {
-      height: 250px; } }
+      height: 150px; } }
   .item:hover {
     background-color: #fafafa; }
   .item:after {
@@ -242,6 +249,11 @@ a {
   width: 20px;
   vertical-align: right;
   cursor: move; }
+  .myHandle i {
+    font-size: 30px;
+    color: black;
+    display: table-cell;
+    vertical-align: top; }
 
 .myDelBtn {
   display: inline-block;
@@ -252,24 +264,28 @@ a {
   cursor: pointer; }
 
 .viewHead {
-  height: 40px;
+  background-color: #e5e5e5;
+  height: 50px;
   display: block;
-  padding: 10px; }
+  padding: 10px;
+  color: #fafafa; }
 
 .viewIcon {
-  margin-right: 10px;
-  color: #242c42;
+  margin-right: 20px;
   font-size: 20px;
   float: left; }
-  .viewIcon:hover {
-    cursor: pointer; }
+  .viewIcon i {
+    color: black;
+    font-size: 30px; }
 
 .viewTitle {
-  float: left;
+  margin-right: 20px;
   font-size: 20px;
-  text-transform: uppercase; }
-  .viewTitle span {
-    font-family: "Lato"; }
+  float: right; }
+  .viewTitle i {
+    font-size: 30px; }
+  .viewTitle:hover {
+    cursor: pointer; }
 
 .viewContent {
   padding: 15px;
@@ -283,6 +299,13 @@ a {
   height: 30px;
   display: block; }
   .viewFooter span {
-    text-align: center; }
+    text-align: center;
+    font-size: 15px; }
+
+.viewMove i {
+  color: black;
+  font-size: 30px;
+  display: table-cell;
+  vertical-align: top; }
 
 /*# sourceMappingURL=styles.css.map */

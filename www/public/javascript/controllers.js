@@ -48,10 +48,11 @@ myApp.controller('sortableController', function($scope) {
 
 
   var tmpList = [];
-  for (var i = 1; i <= 3; i++){
+  for (var i = 1; i <= 2; i++){
     tmpList.push({
       id: 'item' + i,
       text: 'BarCode ' + i,
+      number: 'BNVSD1231231',
       value: i
     });
   }
