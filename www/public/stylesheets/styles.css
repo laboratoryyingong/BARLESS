@@ -206,10 +206,10 @@ a {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
   @media screen and (min-width: 320px) {
     .item {
-      height: 200px; } }
+      height: 350px; } }
   @media screen and (max-width: 1200px) {
     .item {
-      height: 150px; } }
+      height: inherit; } }
   .item:hover {
     background-color: #fafafa; }
   .item:after {
@@ -286,13 +286,6 @@ a {
     font-size: 30px; }
   .viewTitle:hover {
     cursor: pointer; }
-
-.viewContent {
-  padding: 15px;
-  height: auto;
-  display: block; }
-  .viewContent .row img {
-    height: 60px; }
 
 .viewFooter {
   margin-top: 15px;
@@ -411,5 +404,42 @@ a {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg); } }
+.gallery-content .grid-item {
+  -webkit-box-shadow: -5px 5px 30px 0px #e5e5e5;
+  -moz-box-shadow: -5px 5px 30px 0px #e5e5e5;
+  box-shadow: -5px 5px 30px 0px #e5e5e5;
+  float: left;
+  width: 33.33%;
+  overflow: hidden;
+  height: auto; }
+  .gallery-content .grid-item:before {
+    content: "";
+    display: block; }
+  .gallery-content .grid-item .content {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url(../images/lib-pictures/icon-plus.png);
+    background-size: cover;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    color: #fff;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.5s ease; }
+  .gallery-content .grid-item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    z-index: 10; }
+    .gallery-content .grid-item:hover img {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5); }
+  .gallery-content .grid-item img {
+    width: auto;
+    height: auto;
+    webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -128,36 +128,54 @@ function LocalDatabaseController($scope){
     // $scope
 }
 
+
+//init database
 LocalDatabaseController.prototype.init = function(){
-//    alert("init local database");
+    PouchDB.debug.enable('*');
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
+
 }
 
+//delete database
+LocalDatabaseController.prototype.deleteDB = function(){
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    db.destroy().then(function(response){
+
+    }).catch(function(err){
+        console.log(err);
+    });
+}
+
+//database info
 LocalDatabaseController.prototype.information = function(){
-//    alert("show database information");
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-//    Whether PouchDB is using the SQLite Plugin or not
-        db.info();
+        db.info().then(function(result){
+            console.log(result)
+        }).catch(function(err){
+            console.log(err);
+        });
 }
 
+//insert document
 LocalDatabaseController.prototype.insertDoc = function(){
-//    alert("insert new doc to DB");
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.put(doc);
 }
 
+//update document
 LocalDatabaseController.prototype.updateDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.get('rec1').then(function(doc){
-            return db.put({
-                _id: 'rec1',
-                _rev: doc._rev,
-                name: "New Card Name"
-            });
-        }).then(function(response){
-//            handle response
-            console.log(response);
+//            return db.remove(doc);
+//            return db.put({
+//                _id: 'rec1',
+//                _rev: doc._rev,
+//                name: "New Card Name"
+//            });
+            emit(doc);
+        }).then(function(result){
+            console.log(result);
         }).catch(function(err){
-            console.log("Received new err" + err)
+            console.log("Received new err" + err);
         });
 }

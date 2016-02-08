@@ -245,9 +245,9 @@ a
     width: 100%
 
     @media screen and (min-width: $small-screen)
-        height: 200px
+        height: 350px
     @media screen and (max-width: $large-screen)
-        height: 150px
+        height: inherit
 
     background-color: #fafafa
     margin-top: 0
@@ -334,14 +334,6 @@ a
         font-size: 30px
     &:hover
         cursor: pointer
-
-.viewContent
-    padding: 15px
-    height: auto
-    display: block
-    .row
-        img
-            height: 60px
 
 .viewFooter
     margin-top: 15px
@@ -466,3 +458,45 @@ a
         -webkit-transform: rotate(360deg)  /* Chrome, Opera 15+, Safari 3.1+ */
         -ms-transform: rotate(360deg)  /* IE 9 */
         transform: rotate(360deg)  /* Firefox 16+, IE 10+, Opera */
+
+//gallary widget
+.gallery-content
+
+    .grid-item
+        -webkit-box-shadow: -5px 5px 30px 0px rgba(229,229,229,1)
+        -moz-box-shadow: -5px 5px 30px 0px rgba(229,229,229,1)
+        box-shadow: -5px 5px 30px 0px rgba(229,229,229,1)
+        float: left
+        width: 33.33%
+        overflow: hidden
+        height: auto
+        &:before
+            content: ""
+            display: block
+        .content
+            position: absolute
+            content: ''
+            width: 50px
+            height: 50px
+            background: url(../images/lib-pictures/icon-plus.png)
+            background-size: cover
+            left: 50%
+            top: 50%
+            margin-left: -25px
+            margin-top: -25px
+            color: #fff
+            opacity: 0
+            z-index: 2
+            transition: all 0.5s ease
+        &:hover
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4)
+            z-index: 10
+            img
+                -webkit-transform: scale(1.5)
+                transform: scale(1.5)
+        img
+            width: auto
+            height: auto
+            webkit-transition: all 0.5s ease
+            transition: all 0.5s ease
+

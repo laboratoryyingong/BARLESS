@@ -28,14 +28,12 @@
 
 <body ng-app="todoApp">
     <nav id="menu" class="menu" >
-      <a href="#">
-        <header class="menu-header">
-          <span class="menu-header-title">TODO: add title</span>
-        </header>
-      </a>
+      <header class="menu-header">
+        <span class="menu-header-title">BARLESS</span>
+      </header>
 
       <section class="menu-section">
-        <h3 class="menu-section-title">TODO: Main Function</h3>
+        <h3 class="menu-section-title">What we can do</h3>
         <ul class="menu-section-list">
           <li><a href="#">Func1</a></li>
           <li><a href="#">Func2</a></li>
@@ -118,12 +116,24 @@
 <!--                                <div class="viewTitle"><span>{{item.text}}</span></div>-->
                             </div>
                             <div class="viewContent">
+                                  <!-- Tab panes-->
+                            <div class="gallery-content">
+                                <div class="grid">
+                                    <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/pictures-2.jpg" alt="" class="img-responsive"/></div>
+                                    <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/pictures-2.jpg" alt="" class="img-responsive"/></div>
+                                    <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/pictures-2.jpg" alt="" class="img-responsive"/></a></div>
+                                </div>
+                            </div>
+<!--
                                 <div class="row">
                                     <div class="col-xs-4"><img src="public/img/barcode1.png" /></div>
                                     <div class="col-xs-4"><img src="public/img/credit-card.jpg" /></div>
                                     <div class="col-xs-4"><img src="public/img/note.png" /></div>
                                 </div>
+-->
                             </div>
+
+
 <!--
                             <div class="viewFooter">
                                 <span>NBS2931234-1231</span>
@@ -154,16 +164,19 @@
     </div>
 <!--end test unit-->
 
+
     <div ng-controller="LocalDatabaseController as db">
-        <button class="btn" ng-click="db.init()">Press to init database</button>
-        <button class="btn btn-primary" ng-click="db.information()">Press to show information</button>
-        <button class="btn btn-primary" ng-click="db.insertDoc()">Press to insert Doc</button>
-        <button class="btn btn-secondary" ng-click="db.updateDoc()">Press to update Doc</button>
+        <button class="btn" ng-click="db.init()">Init database</button>
+        <button class="btn btn-primary" ng-click="db.information()">Information</button>
+        <button class="btn btn-primary" ng-click="db.insertDoc()">Insert Doc</button>
+        <button class="btn btn-secondary" ng-click="db.updateDoc()">Update Doc</button>
+        <button class="btn alert-danger" ng-click="db.deleteDB()">Delete Database</button>
     </div>
 
   <footer class="panel-footer">
     <p>Digital Innovation By Design, © TKIE, 2016</p>
   </footer>
+
 </main>
 
 </body>
