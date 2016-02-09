@@ -209,7 +209,7 @@ a {
       height: 350px; } }
   @media screen and (max-width: 1200px) {
     .item {
-      height: inherit; } }
+      height: 160px; } }
   .item:hover {
     background-color: #fafafa; }
   .item:after {
@@ -438,8 +438,13 @@ a {
       transform: scale(1.5); }
   .gallery-content .grid-item img {
     width: auto;
-    height: auto;
     webkit-transition: all 0.5s ease;
     transition: all 0.5s ease; }
+    @media screen and (min-width: 320px) {
+      .gallery-content .grid-item img {
+        height: 300px; } }
+    @media screen and (max-width: 1200px) {
+      .gallery-content .grid-item img {
+        height: 110px; } }
 
 /*# sourceMappingURL=styles.css.map */

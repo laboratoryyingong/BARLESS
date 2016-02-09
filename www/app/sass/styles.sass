@@ -247,7 +247,7 @@ a
     @media screen and (min-width: $small-screen)
         height: 350px
     @media screen and (max-width: $large-screen)
-        height: inherit
+        height: 160px
 
     background-color: #fafafa
     margin-top: 0
@@ -495,8 +495,11 @@ a
                 -webkit-transform: scale(1.5)
                 transform: scale(1.5)
         img
+            @media screen and (min-width: $small-screen)
+                height: 300px
+            @media screen and (max-width: $large-screen)
+                height: 110px
             width: auto
-            height: auto
             webkit-transition: all 0.5s ease
             transition: all 0.5s ease
 
