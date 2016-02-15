@@ -11,6 +11,18 @@ var doc = {
             }
         }
     };
+var doc1 = {
+        "_id" : "rec1",
+        "name" : "Card Name 2",
+        "type" : "QR-Code",
+        "note" : ["note1", "note2", "note3"],
+        "_attachments" : {
+            "myattachement.txt" : {
+                "content_type" : "text/plain",
+                data: "aGVsbG8gd29ybGQ="
+            }
+        }
+    };
 var db;
 
 myApp.filter('greet', function(){
@@ -131,8 +143,9 @@ function LocalDatabaseController($scope){
 
 //init database
 LocalDatabaseController.prototype.init = function(){
-    PouchDB.debug.enable('*');
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    if (typeof window != "undefined"){
+        window.PouchDB = PouchDB};
 
 }
 
@@ -172,7 +185,7 @@ LocalDatabaseController.prototype.updateDoc = function(){
 //                _rev: doc._rev,
 //                name: "New Card Name"
 //            });
-            emit(doc);
+//            emit(doc);
         }).then(function(result){
             console.log(result);
         }).catch(function(err){

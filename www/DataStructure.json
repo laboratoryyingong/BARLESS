@@ -1,0 +1,21 @@
+//this file is used to design the doc structure, example
+{
+    "_id" : "ID",
+    "title" : "new card exp title",
+    "info" : {
+        "barcode_text" : result.text,
+        "barcode_format" : result.format,
+        "barcode_img" : "result.img: based64 string"
+            },
+    "_attachments" : {
+        "card_img" : {
+            "contect_type" : "based64",
+            "data" : "TGVnZW5kYXJ5IGhlYXJ0cywgdGVhciB1cyBhbGwgYXBhcnQKTWFrZS"
+            },
+        "notes.txt" : {
+            "contect_type" : "text/plain",
+            "data" : "example notes!@$#"
+            }
+        }
+}
+
