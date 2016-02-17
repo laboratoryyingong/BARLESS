@@ -15,6 +15,12 @@
         },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "au.com.barless.www"
+        },
+        "com.synconset.imageResizer": {
+            "PACKAGE_NAME": "au.com.barless.www"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "au.com.barless.www"
         }
     },
     "dependent_plugins": {}

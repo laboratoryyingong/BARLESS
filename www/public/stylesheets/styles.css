@@ -196,7 +196,7 @@ a {
   margin: 10px 0 30px; }
 
 .item {
-  width: 100%;
+  width: 110%;
   background-color: #fafafa;
   margin-top: 0;
   margin-bottom: 30px;
@@ -206,10 +206,12 @@ a {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
   @media screen and (min-width: 320px) {
     .item {
-      height: 350px; } }
+      height: 350px;
+      left: -20px; } }
   @media screen and (max-width: 1200px) {
     .item {
-      height: 160px; } }
+      height: 160px;
+      left: -20px; } }
   .item:hover {
     background-color: #fafafa; }
   .item:after {
@@ -439,12 +441,25 @@ a {
   .gallery-content .grid-item img {
     width: auto;
     webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease; }
+    transition: all 0.5s ease;
+    padding: 15px 10px 15px 10px; }
     @media screen and (min-width: 320px) {
       .gallery-content .grid-item img {
         height: 300px; } }
     @media screen and (max-width: 1200px) {
       .gallery-content .grid-item img {
         height: 110px; } }
+  .gallery-content .grid-item .grid-text {
+    width: auto;
+    padding: 15px 10px 15px 10px;
+    font-size: 10px;
+    text-align: left;
+    overflow: hidden; }
+    @media screen and (min-width: 320px) {
+      .gallery-content .grid-item .grid-text {
+        height: 290px; } }
+    @media screen and (max-width: 1200px) {
+      .gallery-content .grid-item .grid-text {
+        height: 100px; } }
 
 /*# sourceMappingURL=styles.css.map */

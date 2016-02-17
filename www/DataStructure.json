@@ -1,4 +1,5 @@
 //this file is used to design the doc structure, example
+// all files should be stored in this structure
 {
     "_id" : "ID",
     "title" : "new card exp title",
@@ -9,8 +10,8 @@
             },
     "_attachments" : {
         "card_img" : {
-            "contect_type" : "based64",
-            "data" : "TGVnZW5kYXJ5IGhlYXJ0cywgdGVhciB1cyBhbGwgYXBhcnQKTWFrZS"
+            "contect_type" : "data:image/jpeg;base64,",
+            "data" : "Exp:TGVnZW5kYXJ5IGhlYXJ0cywgdGVhciB1cyBhbGwgYXBhcnQKTWFrZS"
             },
         "notes.txt" : {
             "contect_type" : "text/plain",

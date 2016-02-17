@@ -4,6 +4,8 @@ var resultDiv;
 
 document.addEventListener("deviceready", init, false);
 
+document.addEventListener("deviceready", onDeviceReady, false);
+
 function init() {
 	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
 	resultDiv = document.querySelector("#results");
@@ -30,8 +32,6 @@ function startScan() {
 
 
 }
-
-document.addEventListener("deviceready",onDeviceReady,false);
 
 function onDeviceReady(){
 

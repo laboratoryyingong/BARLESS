@@ -242,12 +242,14 @@ a
     margin: 10px 0 30px
 
 .item
-    width: 100%
+    width: 110%
 
     @media screen and (min-width: $small-screen)
         height: 350px
+        left: -20px
     @media screen and (max-width: $large-screen)
         height: 160px
+        left: -20px
 
     background-color: #fafafa
     margin-top: 0
@@ -461,7 +463,6 @@ a
 
 //gallary widget
 .gallery-content
-
     .grid-item
         -webkit-box-shadow: -5px 5px 30px 0px rgba(229,229,229,1)
         -moz-box-shadow: -5px 5px 30px 0px rgba(229,229,229,1)
@@ -502,5 +503,16 @@ a
             width: auto
             webkit-transition: all 0.5s ease
             transition: all 0.5s ease
+            padding: 15px 10px 15px 10px
+        .grid-text
+            @media screen and (min-width: $small-screen)
+                height: 290px
+            @media screen and (max-width: $large-screen)
+                height: 100px
+            width: auto
+            padding: 15px 10px 15px 10px
+            font-size: 10px
+            text-align: left
+            overflow: hidden
 
 

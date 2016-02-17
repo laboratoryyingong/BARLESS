@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy"/>
   <title>APP | TEST</title>
 <!--  <meta name="description" content="The HTML5 Herald">-->
 <!--  <meta name="author" content="SitePoint">-->
@@ -50,8 +51,10 @@
 <!--          <button class="js-slideout-toggle">Menu Button</button>-->
           <div class="box-shadow-menu js-slideout-toggle"></div>
           <div class="notificationIcon"><i class="fa fa-camera-retro" id="startScan"></i></div>
-          <div class="notificationIcon"><i class="fa fa-suitcase"></i></div>
+<!--          <div class="notificationIcon"><i class="fa fa-suitcase"></i></div>-->
           <div class="notificationIcon"><i class="fa fa-retweet" id="reload"></i></div>
+<!--camera testing-->
+          <div class="notificationIcon"><i class="fa fa-camera" id="takePic"></i></div>
       </header>
 
 <!--display modal example-->
@@ -117,17 +120,17 @@
                             </div>
                             <div class="viewContent">
                                   <!-- Tab panes-->
-                            <div class="gallery-content">
-                                <div class="grid">
-                                    <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/barCode.png" alt="" class="img-responsive"/></div>
-                                    <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/creditCard.png" alt="" class="img-responsive"/></div>
+                                <div class="gallery-content">
+                                    <div class="grid">
+                                        <div class="grid-item grid-item-height2"><img src="public/img/lib-pictures/barCode.png" alt="" class="img-responsive"/></div>
+                                        <div class="grid-item grid-item-height2"><img alt="" class="img-responsive" id="image"/></div>
 
-                                    <div class="grid-item grid-item-height2">
-                                        <img src="public/img/lib-pictures/note.png" alt="" class="img-responsive"/>
+                                        <div class="grid-item grid-item-height2">
+                                            <p class="grid-text">This is a sample text using words, max wording(40)</p>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
 <!--
                                 <div class="row">
                                     <div class="col-xs-4"><img src="public/img/barcode1.png" /></div>
@@ -192,8 +195,8 @@
 
     <script type="text/javascript" src="cordova.js"></script>
 <!--angular js + plugin + bootstrap-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="public/libs/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="public/libs/jquery-ui.min.js"></script>
     <script src="public/libs/jquery.ui.touch-pouch.js"></script>
     <script src="public/libs/angular.js" type="text/javascript"></script>
     <script src="public/libs/angularSortable.js" type="text/javascript"></script>

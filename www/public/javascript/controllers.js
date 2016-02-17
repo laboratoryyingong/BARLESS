@@ -23,7 +23,6 @@ var doc1 = {
             }
         }
     };
-var db;
 
 myApp.filter('greet', function(){
     return function(name){
@@ -140,7 +139,6 @@ function LocalDatabaseController($scope){
     // $scope
 }
 
-
 //init database
 LocalDatabaseController.prototype.init = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
@@ -192,3 +190,28 @@ LocalDatabaseController.prototype.updateDoc = function(){
             console.log("Received new err" + err);
         });
 }
+
+//create database services
+myApp.factory('DBService', ['$q', DBService]);
+
+function DBService($q){
+    var _db;
+    var _barcode;
+
+    return{
+        initDB: initDB,
+    };
+
+    function initDB(){
+        _db = new PouchDB('barcode', {adapter : 'websql'});
+    };
+}
+
+function addDoc(doc){
+    return $q.when(_db.post(doc));
+};
+
+function deleteDoc(doc){
+    return $q.when(_db.remove(doc));
+};
+
