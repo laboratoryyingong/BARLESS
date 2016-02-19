@@ -96,6 +96,112 @@ a
     height: 3em
     margin-bottom: 1em
     margin-top: 1em
+    .notificationIcon
+        margin-left: 0.6em
+        margin-right: 0.6em
+        .left
+            position: relative
+            float: left
+            padding: 0.8em
+            background: #FFF
+            color: black
+            font: bold 11px "Helvetica"
+            text-decoration: none
+
+            -webkit-border-radius: 20px
+            -moz-border-radius: 20px
+            border-radius: 20px
+
+            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+
+            -webkit-transition: all 0.3s ease
+            -moz-transition: all 0.3s ease
+            -o-transition: all 0.3s ease
+            transition: all 0.3s ease
+
+            &:before
+                background: gray
+                color: #FFF
+                content: "<"
+                display: inline-block
+                font: bold 11px "Georgia"
+                height: 25px
+                line-height: 25px
+                margin-right: 10px
+                text-align: center
+                width: 25px
+
+                -webkit-border-radius: 20px
+                -moz-border-radius: 20px
+                border-radius: 20px
+            &:hover
+                -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+                -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+
+                -webkit-transition: all 0.3s ease
+                -moz-transition: all 0.3s ease
+                -o-transition: all 0.3s ease
+                transition: all 0.3s ease
+        .right
+            position: relative
+            float: right
+            padding: 0.8em
+            background: #FFF
+            color: black
+            font: bold 11px "Helvetica"
+            text-decoration: none
+
+            -webkit-border-radius: 20px
+            -moz-border-radius: 20px
+            border-radius: 20px
+
+            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
+
+            -webkit-transition: all 0.3s ease
+            -moz-transition: all 0.3s ease
+            -o-transition: all 0.3s ease
+            transition: all 0.3s ease
+
+            &:after
+                background: gray
+                color: #FFF
+                content: ">"
+                display: inline-block
+                font: bold 11px "Georgia"
+                height: 25px
+                line-height: 25px
+                margin-left: 10px
+                text-align: center
+                width: 25px
+
+                -webkit-border-radius: 20px
+                -moz-border-radius: 20px
+                border-radius: 20px
+            &:hover
+                -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+                -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+
+                -webkit-transition: all 0.3s ease
+                -moz-transition: all 0.3s ease
+                -o-transition: all 0.3s ease
+                transition: all 0.3s ease
+        i
+            font-size: 35px
+        &:hover
+            cursor: pointer
+        a
+
+
+
+.panel-footer
+    p
+        text-align: center
 
 .slideout-menu
     position: fixed
@@ -150,14 +256,6 @@ a
         background: $grey
         box-shadow: 0 0.25em 0 0 $grey,0 0.5em 0 0 $grey
 
-.notificationIcon
-    position: relative
-    float: left
-    padding: 0.6em 3em 0 0
-    i
-        font-size: 35px
-    &:hover
-        cursor: pointer
 
     //*******************
     //box container css
@@ -515,4 +613,5 @@ a
             text-align: left
             overflow: hidden
 
+//step navigation css
 

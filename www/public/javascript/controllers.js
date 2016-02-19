@@ -1,5 +1,5 @@
 var myApp = angular.module('todoApp', ['ui.sortable']);
-var doc = {
+var doc1 = {
         "_id" : "rec1",
         "name" : "Card Name",
         "type" : "QR-Code",
@@ -11,10 +11,10 @@ var doc = {
             }
         }
     };
-var doc1 = {
+var doc2 = {
         "_id" : "rec1",
         "name" : "Card Name 2",
-        "type" : "QR-Code",
+        "type" : "QR-Code 2",
         "note" : ["note1", "note2", "note3"],
         "_attachments" : {
             "myattachement.txt" : {
@@ -170,25 +170,59 @@ LocalDatabaseController.prototype.information = function(){
 //insert document
 LocalDatabaseController.prototype.insertDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-        db.put(doc);
+        db.put(doc1).then(function(response){
+            console.log(response);
+        }).catch(function(err){
+            console.log(err);
+        });
 }
 
 //update document
 LocalDatabaseController.prototype.updateDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.get('rec1').then(function(doc){
-//            return db.remove(doc);
-//            return db.put({
-//                _id: 'rec1',
-//                _rev: doc._rev,
-//                name: "New Card Name"
-//            });
-//            emit(doc);
+            return db.put({
+                _id: 'rec1',
+                _rev: doc._rev,
+                "name" : "Card Name 2",
+                "type" : "QR-Code 2",
+                "note" : ["note1", "note2", "note3"],
+                "_attachments" : {
+                        "myattachement.txt" : {
+                            "content_type" : "text/plain",
+                            data: "aGVsbG8gd29ybGQ="
+                            }
+                }
+            });
         }).then(function(result){
             console.log(result);
         }).catch(function(err){
             console.log("Received new err" + err);
         });
+}
+
+//fetch doc
+LocalDatabaseController.prototype.fetchDoc = function(){
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    db.get('rec1').then(function(doc){
+        console.log("The doc name is " + doc.name);
+    }).catch(function(err){
+        console.log(err);
+    });
+
+}
+
+
+//temporary queries
+LocalDatabaseController.prototype.query = function(){
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    db.query(function(doc, emit){
+        emit(doc.name);
+    }, {key: 'Card Name 2'}).then(function(result){
+        alert(JSON.stringify(result));
+    }).catch(function(err){
+
+    });
 }
 
 //create database services
