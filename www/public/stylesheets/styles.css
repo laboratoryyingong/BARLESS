@@ -72,6 +72,12 @@ a {
   height: 3em;
   margin-bottom: 1em;
   margin-top: 1em; }
+  .panel-header .mainIcon {
+    margin-left: 0.6em;
+    margin-right: 0.6em;
+    display: inline-block;
+    float: left;
+    font-size: 35px; }
   .panel-header .notificationIcon {
     margin-left: 0.6em;
     margin-right: 0.6em; }

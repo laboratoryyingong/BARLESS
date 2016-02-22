@@ -32,6 +32,38 @@ $(document).ready(function() {
         }
     };
 
+    resizeDiv()
+
+});
+
+$('#reload').click(function(){
+    location.reload();
+});
+
+
+
+//resise windows
+function resizeDiv(){
+    vpw = $(window).width();
+    vph = $(window).height();
+
+}//init page
+$(document).ready(function() {
+
+    setTimeout(function(){
+//	    console.log("timeout");
+        setTimeout(layout(), 500);
+    }, 500);
+
+    function layout(){
+        $('body').addClass('loaded');
+        return function(){
+            $('#loader-wrapper').hide();
+        }
+    };
+
+    resizeDiv()
+
 });
 
 $('#reload').click(function(){
@@ -39,20 +71,28 @@ $('#reload').click(function(){
 });
 
 //image capture + resize function
-var cameraOptions = {
-    quality: 100,
-    targetWidth: 480,
-    targetHeight: 480,
-    destinationType: Camera.DestinationType.DATA_URL,
-    correctOrientation: true
+//var cameraOptions = {
+//    quality: 100,
+//    targetWidth: 480,
+//    targetHeight: 480,
+//    destinationType: Camera.DestinationType.DATA_URL,
+//    correctOrientation: true
+//}
+//
+//$('#takePic').click(function takePicture(){
+//    navigator.camera.getPicture(function onSuccess(imageData){
+//            var image = document.getElementById('image');
+//            image.src = "data:image/jpeg;base64," + imageData;
+//    }, function onFail(message){
+//        console.log(message);
+//    }, cameraOptions);
+//
+//});
+
+
+//resise windows
+function resizeDiv(){
+    vpw = $(window).width();
+    vph = $(window).height();
+
 }
-
-$('#takePic').click(function takePicture(){
-    navigator.camera.getPicture(function onSuccess(imageData){
-            var image = document.getElementById('image');
-            image.src = "data:image/jpeg;base64," + imageData;
-    }, function onFail(message){
-        console.log(message);
-    }, cameraOptions);
-
-});
