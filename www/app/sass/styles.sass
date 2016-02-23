@@ -621,4 +621,94 @@ a
             overflow: hidden
 
 //step navigation css
+.stepImg
+    width: 90%
+    display: block
+    margin: auto
+
+.frame
+    width: 110px
+    height: 0px
+    margin: 0 auto
+    position: relative
+    cursor: pointer
+
+    &:hover
+        .hex-inner
+            height: 55px
+            border-radius: 30px
+        .label
+            transform: scale(.90)
+            -webkit-transform: scale(.90)
+    &:active
+        .hex-inner
+            height: 55px
+            border-radius: 30px
+        .label
+            transform: scale(.90)
+            -webkit-transform: scale(.90)
+
+.hex-outer
+    background: #1b1b1b
+    width: 110px
+    height: 63px
+
+
+.hex-inner
+    background: white
+    width: 100px
+    height: 55px
+    left: 5px
+    top: 3px
+    position: relative
+    border-radius: 0
+    transition: all .4s
+    -webkit-transition: all .4s
+
+.h1
+    position: absolute
+
+
+.h2
+    position: absolute
+    transform: rotate(60deg)
+    -webkit-transform: rotate(60deg)
+
+.h3
+    position: absolute
+    transform: rotate(-60deg)
+    -webkit-transform: rotate(-60deg)
+
+.stepIcon
+    position: absolute
+    color: #1b1b1b
+    font-weight: bold
+    font-size: 60px
+    left: 24px
+    top: 5px
+    transition: all .4s
+    -webkit-transition: all .4s
+
+.imageWrap
+    margin-top: 120px
+    width: 100%
+
+
+//textarea css
+textarea.notebook
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif
+    font-weight: 700
+    width: 100%
+    padding: 5px 0px
+    margin-bottom: 20px
+    resize: vertical
+    font-size: 11px
+    line-height: 24px
+    border-bottom: 2px solid
+    border-top: none
+    border-left: none
+    border-right: none
+    -webkit-appearance: none
+    border-radius: 0
+    background: url(../img/notebook.png)
 

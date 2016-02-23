@@ -9,11 +9,6 @@ var slideout = new Slideout({
 });
 
 var el = document.querySelector('.js-slideout-toggle')
-
-el.addEventListener('click', function() {
-    slideout.toggle();
-});
-
 var myElement = document.getElementById('slider');
 var delBtn = document.getElementById("myCheck");
 
@@ -34,6 +29,10 @@ $(document).ready(function() {
 
     resizeDiv()
 
+});
+
+el.addEventListener('click', function() {
+    slideout.toggle();
 });
 
 $('#reload').click(function(){
@@ -69,25 +68,6 @@ $(document).ready(function() {
 $('#reload').click(function(){
     location.reload();
 });
-
-//image capture + resize function
-//var cameraOptions = {
-//    quality: 100,
-//    targetWidth: 480,
-//    targetHeight: 480,
-//    destinationType: Camera.DestinationType.DATA_URL,
-//    correctOrientation: true
-//}
-//
-//$('#takePic').click(function takePicture(){
-//    navigator.camera.getPicture(function onSuccess(imageData){
-//            var image = document.getElementById('image');
-//            image.src = "data:image/jpeg;base64," + imageData;
-//    }, function onFail(message){
-//        console.log(message);
-//    }, cameraOptions);
-//
-//});
 
 
 //resise windows

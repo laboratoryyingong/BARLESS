@@ -8,11 +8,11 @@ $(document).ready(function() {
 });
 
 //tab control
-$('#forward').click(function(){
+$('.right').click(function(){
     $('.nav-tabs > .active').next('li').find('a').trigger('click');
 });
 
-$('#backward').click(function(){
+$('.left').click(function(){
   $('.nav-tabs > .active').prev('li').find('a').trigger('click');
 });
 
@@ -26,7 +26,8 @@ var cameraOptions = {
     correctOrientation: true
 }
 
-$('#takePic').click(function takePicture(){
+function takePicture(){
+    alert("Please take a picture of your card!");
     navigator.camera.getPicture(function onSuccess(imageData){
             var image = document.getElementById('image');
             image.src = "data:image/jpeg;base64," + imageData;
@@ -34,15 +35,18 @@ $('#takePic').click(function takePicture(){
         console.log(message);
     }, cameraOptions);
 
-});
+};
 
 //resise windows
 function resizeDiv(){
     vpw = $(window).width();
     vph = $(window).height();
     $('#mainBody').css({'height': (vph - 110) + 'px'});
+    $('#image').css({'height': (vph - 350) + 'px'})
 }
 
+
+//barcode scan functions
 function scanCode() {
     cordova.plugins.barcodeScanner.scan(
     function(result){

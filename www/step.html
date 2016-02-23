@@ -18,38 +18,77 @@
 </head>
 
 <body ng-app="step">
-    <main >
-        <header class="panel-header">
-            <div class="notificationIcon"><a class="right" id="forward">NEXT</a></div>
-            <div class="notificationIcon"><a class="left" id="backward">BACK</a></div>
-        </header>
+    <main>
 
         <div class="container" id="mainBody">
           <ul class="nav nav-tabs" style="display:none">
-            <li class="active"><a data-toggle="tab" href="#step1"></a></li>
+            <li class="notificationTitle active"><a data-toggle="tab" href="#step1"></a></li>
             <li><a data-toggle="tab" href="#step2"></a></li>
             <li><a data-toggle="tab" href="#step3"></a></li>
           </ul>
 
           <div class="tab-content">
             <div id="step1" class="tab-pane fade in active">
-                <h3>Step 1:<br />Scan and generater barcode</h3>
+                <header class="panel-header">
+                    <div class="notificationIcon"><a class="right">NEXT</a></div>
+                </header>
 
-                <input type="button" value="Scan Code" onclick="scanCode();"/><br/><br/>
-<!--                <input type="text" name="data" id="data" /><br/><br/>-->
-<!--                <input type="button" value="Encode Data" onclick="encodeData();"/><br />-->
-                <img id="barcode" style="width:100%">
+                <div class="frame" onclick="scanCode();">
+                    <div class="hex-outer h1"></div>
+                    <div class="hex-outer h2"></div>
+                    <div class="hex-outer h3"></div>
+                    <div class="hex-inner h1"></div>
+                    <div class="hex-inner h2"></div>
+                    <div class="hex-inner h3"></div>
+                    <div class="stepIcon"><i class="fa fa-barcode"></i></div>
+                </div>
+                <br />
+                <div class="imageWrap">
+                    <img class="stepImg" id="barcode">
+                </div>
             </div>
+
             <div id="step2" class="tab-pane fade">
-              <h3>Step 2:<br />Photo your card</h3>
+                <header class="panel-header">
+                    <div class="notificationIcon"><a class="right">NEXT</a></div>
+                    <div class="notificationIcon"><a class="left">BACK</a></div>
+                </header>
 
-                 <input type="button" value="Scan Code" id="takePic"/><br/><br/>
-                 <img id="image" style="width:100%">
+                <div class="frame" onclick="takePicture();">
+                    <div class="hex-outer h1"></div>
+                    <div class="hex-outer h2"></div>
+                    <div class="hex-outer h3"></div>
+                    <div class="hex-inner h1"></div>
+                    <div class="hex-inner h2"></div>
+                    <div class="hex-inner h3"></div>
+                    <div class="stepIcon"><i class="fa fa-credit-card"></i></div>
+                </div>
+                <br/>
+                <div class="imageWrap">
+                    <img class="stepImg" id="image">
+                </div>
+
 
             </div>
+
             <div id="step3" class="tab-pane fade">
-              <h3>Step 3:</h3>
-              <p>Make some notes</p>
+                <header class="panel-header">
+                    <div class="notificationIcon"><a class="left">BACK</a></div>
+                </header>
+
+                <div class="frame" onclick="">
+                    <div class="hex-outer h1"></div>
+                    <div class="hex-outer h2"></div>
+                    <div class="hex-outer h3"></div>
+                    <div class="hex-inner h1"></div>
+                    <div class="hex-inner h2"></div>
+                    <div class="hex-inner h3"></div>
+                    <div class="stepIcon"><i class="fa fa-comments"></i></div>
+                </div>
+                <br/>
+                <div class="imageWrap">
+                    <textarea class="notebook" rows="7" cols="60">Type notes here...</textarea>
+                </div>
             </div>
           </div>
         </div>
