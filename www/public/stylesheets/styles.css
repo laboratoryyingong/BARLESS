@@ -91,6 +91,7 @@ a {
       text-decoration: none;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
       border-radius: 20px;
       -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
       -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -112,11 +113,12 @@ a {
         width: 25px;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
         border-radius: 20px; }
       .panel-header .notificationIcon .left:hover {
-        -webkit-box-shadow: 0px 0px 15px black;
-        -moz-box-shadow: 0px 0px 15px black;
-        box-shadow: 0px 0px 15px black;
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -131,6 +133,7 @@ a {
       text-decoration: none;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
       border-radius: 20px;
       -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
       -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -152,11 +155,96 @@ a {
         width: 25px;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
         border-radius: 20px; }
       .panel-header .notificationIcon .right:hover {
-        -webkit-box-shadow: 0px 0px 15px black;
-        -moz-box-shadow: 0px 0px 15px black;
-        box-shadow: 0px 0px 15px black;
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+    .panel-header .notificationIcon .store {
+      position: relative;
+      float: right;
+      padding: 0.8em;
+      background: #FFF;
+      color: black;
+      font: bold 11px "Helvetica";
+      text-decoration: none;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      border-radius: 20px;
+      -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .panel-header .notificationIcon .store:after {
+        background: #a40000;
+        color: #FFF;
+        content: "S";
+        display: inline-block;
+        font: bold 11px "Georgia";
+        height: 25px;
+        line-height: 25px;
+        margin-left: 10px;
+        text-align: center;
+        width: 25px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        border-radius: 20px; }
+      .panel-header .notificationIcon .store:hover {
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+    .panel-header .notificationIcon .return {
+      position: relative;
+      float: left;
+      padding: 0.8em;
+      background: #FFF;
+      color: black;
+      font: bold 11px "Helvetica";
+      text-decoration: none;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      border-radius: 20px;
+      -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .panel-header .notificationIcon .return:after {
+        background: #a40000;
+        color: #FFF;
+        content: "R";
+        display: inline-block;
+        font: bold 11px "Georgia";
+        height: 25px;
+        line-height: 25px;
+        margin-left: 10px;
+        text-align: center;
+        width: 25px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        border-radius: 20px; }
+      .panel-header .notificationIcon .return:hover {
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
@@ -236,7 +324,6 @@ a {
   left: -15%;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
   .items:hover {
@@ -245,7 +332,6 @@ a {
 .items-active {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   left: 5%; }
@@ -434,6 +520,8 @@ a {
 .loaded #loader {
   opacity: 0;
   -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
 #loader {
@@ -614,7 +702,8 @@ a {
 
 .imageWrap {
   margin-top: 120px;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
 
 textarea.notebook {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -632,5 +721,25 @@ textarea.notebook {
   -webkit-appearance: none;
   border-radius: 0;
   background: url(../img/notebook.png); }
+
+input::-webkit-input-placeholder {
+  color: #a40000; }
+
+input::-moz-placeholder {
+  color: red; }
+
+input::-ms-input-placeholder {
+  color: red; }
+
+.stepInput {
+  width: 50%;
+  height: 3em;
+  font-size: 15px;
+  padding: 1em;
+  border: 1px solid black;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px; }
 
 /*# sourceMappingURL=styles.css.map */

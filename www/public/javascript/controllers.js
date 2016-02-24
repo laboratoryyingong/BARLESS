@@ -1,4 +1,6 @@
 var myApp = angular.module('todoApp', ['ui.sortable']);
+var stepApp = angular.module('stepApp', []);
+
 var doc1 = {
         "_id" : "rec1",
         "name" : "Card Name",
@@ -133,22 +135,60 @@ myApp.controller('sortableController', function($scope) {
 
 });
 
-myApp.controller('LocalDatabaseController', ['$scope', LocalDatabaseController]);
+stepApp.controller('storeBarcodeController', ['$scope', storeBarcodeController]);
 
-function LocalDatabaseController($scope){
+function storeBarcodeController($scope){
     // $scope
 }
 
-//init database
-LocalDatabaseController.prototype.init = function(){
+storeBarcodeController.prototype.click = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    var title = document.getElementById('stepInput').value;
+
     if (typeof window != "undefined"){
         window.PouchDB = PouchDB};
 
+    db.put({
+        _id : 'mydoc',
+        title : title
+    }).then(function(response){
+        alert("New Barcode has been inserted")
+    }).catch(function(err){
+        console.log(err);
+    });
+
+
+}
+
+//init database
+storeBarcodeController.prototype.init = function(){
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    var title = document.getElementById('stepInput').value;
+    var notes = btoa(document.getElementById('notebook').value);
+
+    db.get('mydoc').then(function(doc){
+
+            return db.put(
+                {
+                    title : title,
+                    _attachments: {
+                        'notes' : {
+                            content_type: 'text/plain',
+                            data: notes
+                        }
+                    }
+                }, 'mydoc', doc._rev).then(function(response){
+                                            console.log(response);
+                                        }).catch(function(err){
+                                            console.log(err);
+                                        });
+
+
+    });
 }
 
 //delete database
-LocalDatabaseController.prototype.deleteDB = function(){
+storeBarcodeController.prototype.deleteDB = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
     db.destroy().then(function(response){
 
@@ -158,7 +198,7 @@ LocalDatabaseController.prototype.deleteDB = function(){
 }
 
 //database info
-LocalDatabaseController.prototype.information = function(){
+storeBarcodeController.prototype.information = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.info().then(function(result){
             console.log(result)
@@ -168,7 +208,7 @@ LocalDatabaseController.prototype.information = function(){
 }
 
 //insert document
-LocalDatabaseController.prototype.insertDoc = function(){
+storeBarcodeController.prototype.insertDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.put(doc1).then(function(response){
             console.log(response);
@@ -178,7 +218,7 @@ LocalDatabaseController.prototype.insertDoc = function(){
 }
 
 //update document
-LocalDatabaseController.prototype.updateDoc = function(){
+storeBarcodeController.prototype.updateDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
         db.get('rec1').then(function(doc){
             return db.put({
@@ -202,7 +242,7 @@ LocalDatabaseController.prototype.updateDoc = function(){
 }
 
 //fetch doc
-LocalDatabaseController.prototype.fetchDoc = function(){
+storeBarcodeController.prototype.fetchDoc = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
     db.get('rec1').then(function(doc){
         console.log("The doc name is " + doc.name);
@@ -214,7 +254,7 @@ LocalDatabaseController.prototype.fetchDoc = function(){
 
 
 //temporary queries
-LocalDatabaseController.prototype.query = function(){
+storeBarcodeController.prototype.query = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
     db.query(function(doc, emit){
         emit(doc.name);

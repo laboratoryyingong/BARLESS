@@ -1,4 +1,5 @@
 var barcodeInfo = [];
+var stepTrigger = 0;
 
 //init page
 $(document).ready(function() {
@@ -9,13 +10,19 @@ $(document).ready(function() {
 
 //tab control
 $('.right').click(function(){
-    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+    if(stepTrigger == 1){
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+        stepTrigger = 0;
+    }else{
+        alert("Please press icon to scan!");
+    }
+
 });
 
 $('.left').click(function(){
-  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+    $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+    stepTrigger = 0
 });
-
 
 //image capture + resize function
 var cameraOptions = {
@@ -26,11 +33,16 @@ var cameraOptions = {
     correctOrientation: true
 }
 
+var tempImageData;
+
 function takePicture(){
     alert("Please take a picture of your card!");
     navigator.camera.getPicture(function onSuccess(imageData){
             var image = document.getElementById('image');
             image.src = "data:image/jpeg;base64," + imageData;
+            tempImageData = imageData;
+            //step trigger
+            stepTrigger = 1;
     }, function onFail(message){
         console.log(message);
     }, cameraOptions);
@@ -41,10 +53,9 @@ function takePicture(){
 function resizeDiv(){
     vpw = $(window).width();
     vph = $(window).height();
-    $('#mainBody').css({'height': (vph - 110) + 'px'});
-    $('#image').css({'height': (vph - 350) + 'px'})
+    $('#mainBody').css({'height': (vph - 50) + 'px'});
+    $('#image').css({'height': (vph - 280) + 'px'})
 }
-
 
 //barcode scan functions
 function scanCode() {
@@ -54,11 +65,20 @@ function scanCode() {
         barcodeInfo[1] = result.format;
         barcodeInfo[2] = result.cancelled;
         encodeData();
+        if (result.text != null && result.cancelled != true){
+            stepTrigger = 1;
+            console.log("scan successfully!")
+        }else{
+            stepTrigger = 0;
+            console.log("error happen!")
+        }
+
     },
     function(error){
         alert("Scan failed: " + error);
     }
     );
+
 }
 
 function encodeData(){

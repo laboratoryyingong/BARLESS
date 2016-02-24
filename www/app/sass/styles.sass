@@ -15,6 +15,17 @@ $large-screen: 1200px
     -ms-border-radius:     $radius
     border-radius:         $radius
 
+=box-shadow($top,$left,$blur,$color)
+    -webkit-box-shadow: $top $left $blur $color
+    -moz-box-shadow:    $top $left $blur $color
+    box-shadow:         $top $left $blur $color
+
+=transition($obj,$speed,$Curve)
+    -webkit-transition: $obj $speed $Curve
+    -moz-transition:    $obj $speed $Curve
+    -o-transition:      $obj $speed $Curve
+    transition:         $obj $speed $Curve
+
 //slide test
 .normalise
     font: 100%/1.4em 'Helvetica Neue',Helvetica,Arial,sans-serif
@@ -115,18 +126,9 @@ a
             font: bold 11px "Helvetica"
             text-decoration: none
 
-            -webkit-border-radius: 20px
-            -moz-border-radius: 20px
-            border-radius: 20px
-
-            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-
-            -webkit-transition: all 0.3s ease
-            -moz-transition: all 0.3s ease
-            -o-transition: all 0.3s ease
-            transition: all 0.3s ease
+            +border-radius(20px)
+            +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+            +transition(all, 0.3s, ease)
 
             &:before
                 background: gray
@@ -140,18 +142,10 @@ a
                 text-align: center
                 width: 25px
 
-                -webkit-border-radius: 20px
-                -moz-border-radius: 20px
-                border-radius: 20px
+                +border-radius(20px)
             &:hover
-                -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
-                -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
-
-                -webkit-transition: all 0.3s ease
-                -moz-transition: all 0.3s ease
-                -o-transition: all 0.3s ease
-                transition: all 0.3s ease
+                +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+                +transition(all, 0.3s, ease)
         .right
             position: relative
             float: right
@@ -161,18 +155,9 @@ a
             font: bold 11px "Helvetica"
             text-decoration: none
 
-            -webkit-border-radius: 20px
-            -moz-border-radius: 20px
-            border-radius: 20px
-
-            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, .25)
-
-            -webkit-transition: all 0.3s ease
-            -moz-transition: all 0.3s ease
-            -o-transition: all 0.3s ease
-            transition: all 0.3s ease
+            +border-radius(20px)
+            +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+            +transition(all, 0.3s, ease)
 
             &:after
                 background: gray
@@ -186,24 +171,72 @@ a
                 text-align: center
                 width: 25px
 
-                -webkit-border-radius: 20px
-                -moz-border-radius: 20px
-                border-radius: 20px
+                +border-radius(20px)
             &:hover
-                -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
-                -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 1)
+                +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+                +transition(all, 0.3s, ease)
+        .store
+            position: relative
+            float: right
+            padding: 0.8em
+            background: #FFF
+            color: black
+            font: bold 11px "Helvetica"
+            text-decoration: none
 
-                -webkit-transition: all 0.3s ease
-                -moz-transition: all 0.3s ease
-                -o-transition: all 0.3s ease
-                transition: all 0.3s ease
+            +border-radius(20px)
+            +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+            +transition(all, 0.3s, ease)
+
+            &:after
+                background: #a40000
+                color: #FFF
+                content: "S"
+                display: inline-block
+                font: bold 11px "Georgia"
+                height: 25px
+                line-height: 25px
+                margin-left: 10px
+                text-align: center
+                width: 25px
+                +border-radius(20px)
+            &:hover
+                +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+                +transition(all, 0.3s, ease)
+
+        .return
+            position: relative
+            float: left
+            padding: 0.8em
+            background: #FFF
+            color: black
+            font: bold 11px "Helvetica"
+            text-decoration: none
+
+            +border-radius(20px)
+            +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+            +transition(all, 0.3s, ease)
+
+            &:after
+                background: #a40000
+                color: #FFF
+                content: "R"
+                display: inline-block
+                font: bold 11px "Georgia"
+                height: 25px
+                line-height: 25px
+                margin-left: 10px
+                text-align: center
+                width: 25px
+                +border-radius(20px)
+            &:hover
+                +box-shadow(0px, 0px, 10px, rgba(0, 0, 0, .25))
+                +transition(all, 0.3s, ease)
+
         i
             font-size: 35px
         &:hover
             cursor: pointer
-        a
-
 
 
 .panel-footer
@@ -290,20 +323,12 @@ a
     margin: 10px 0 10px 0
     width: 120%
     left: -15%
-    -webkit-transition: all .5s ease
-    -moz-transition: all .5s ease
-    -ms-transition: all .5s ease
-    -o-transition: all .5s ease
-    transition: all .5s ease
+    +transition(all, 0.5s, ease)
     &:hover
         cursor: pointer
 
 .items-active
-    -webkit-transition: all .5s ease
-    -moz-transition: all .5s ease
-    -ms-transition: all .5s ease
-    -o-transition: all .5s ease
-    transition: all .5s ease
+    +transition(all, 0.5s, ease)
     left: 5%
 
 .delBtn
@@ -504,8 +529,7 @@ a
                 transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
     #loader
         opacity: 0
-        -webkit-transition: all 0.3s ease-out
-        transition: all 0.3s ease-out
+        +transition(all, 0.3s, ease-out)
 
 #loader
     display: block
@@ -692,6 +716,7 @@ a
 .imageWrap
     margin-top: 120px
     width: 100%
+    text-align: center
 
 
 //textarea css
@@ -712,3 +737,19 @@ textarea.notebook
     border-radius: 0
     background: url(../img/notebook.png)
 
+input::-webkit-input-placeholder
+    color: #a40000
+
+input::-moz-placeholder
+    color: red
+
+input::-ms-input-placeholder
+    color: red
+
+.stepInput
+    width: 50%
+    height: 3em
+    font-size: 15px
+    padding: 1em
+    border: 1px solid black
+    +border-radius(15px)
