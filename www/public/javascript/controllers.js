@@ -1,31 +1,8 @@
 var myApp = angular.module('todoApp', ['ui.sortable']);
 var stepApp = angular.module('stepApp', []);
+var tempID;
 
-var doc1 = {
-        "_id" : "rec1",
-        "name" : "Card Name",
-        "type" : "QR-Code",
-        "note" : ["note1", "note2", "note3"],
-        "_attachments" : {
-            "myattachement.txt" : {
-                "content_type" : "text/plain",
-                data: "aGVsbG8gd29ybGQ="
-            }
-        }
-    };
-var doc2 = {
-        "_id" : "rec1",
-        "name" : "Card Name 2",
-        "type" : "QR-Code 2",
-        "note" : ["note1", "note2", "note3"],
-        "_attachments" : {
-            "myattachement.txt" : {
-                "content_type" : "text/plain",
-                data: "aGVsbG8gd29ybGQ="
-            }
-        }
-    };
-
+//first page controller
 myApp.filter('greet', function(){
     return function(name){
       return 'Hello, ' + name + '!';
@@ -135,34 +112,62 @@ myApp.controller('sortableController', function($scope) {
 
 });
 
+
+//step module controller
 stepApp.controller('storeBarcodeController', ['$scope', storeBarcodeController]);
 
 function storeBarcodeController($scope){
-    // $scope
+    $scope.inputPlaceholder = 'Please input your card\'s name';
+    $scope.textPlaceholder = 'Please take some notes';
+    $scope.card = {
+        name : '',
+        context : ''
+    };
+
 }
 
+
 storeBarcodeController.prototype.click = function(){
+//  init database
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-    var title = document.getElementById('stepInput').value;
+
+//  various of explaination
+    var name = document.getElementById('stepInput').value;
+    var context = btoa(document.getElementById('notebook').value);
 
     if (typeof window != "undefined"){
         window.PouchDB = PouchDB};
 
-    db.put({
-        _id : 'mydoc',
-        title : title
-    }).then(function(response){
-        alert("New Barcode has been inserted")
-    }).catch(function(err){
-        console.log(err);
-    });
-
+    if (name != null && context != null){
+        db.post({
+                    title : name,
+                    _attachments : {
+                        'barcode_img' : {
+                            content_type : 'image/jpeg',
+                            data : tempImageData
+                        },
+                        'notes' : {
+                            content_type: 'text/plain',
+                            data : context
+                        }
+                    }
+                }
+        ).then(function(response){
+            alert("insert your new Doc" + JSON.stringify(response));
+        }).catch(function(err){
+            alert(err);
+        });
+    }else{
+        alert("Please fill all!");
+    }
 
 }
 
 //init database
 storeBarcodeController.prototype.init = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
+    var img = tempImageData;
+    console.log("****TEMP IMG DATA******" + tempImageData);
     var title = document.getElementById('stepInput').value;
     var notes = btoa(document.getElementById('notebook').value);
 
@@ -171,14 +176,18 @@ storeBarcodeController.prototype.init = function(){
             return db.put(
                 {
                     title : title,
-                    _attachments: {
+                    _attachments : {
+                        'barcode_img' : {
+                            content_type : 'image/jpeg',
+                            data : tempImageData
+                        },
                         'notes' : {
                             content_type: 'text/plain',
-                            data: notes
+                            data : notes
                         }
                     }
                 }, 'mydoc', doc._rev).then(function(response){
-                                            console.log(response);
+                                            alert(JSON.stringify(response));
                                         }).catch(function(err){
                                             console.log(err);
                                         });
@@ -190,10 +199,15 @@ storeBarcodeController.prototype.init = function(){
 //delete database
 storeBarcodeController.prototype.deleteDB = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-    db.destroy().then(function(response){
-
+//    db.destroy().then(function(response){
+//        alert("bar-code has been deleted");
+//    }).catch(function(err){
+//        console.log(err);
+//    });
+    db.get('mydoc', {attachments: true}).then(function(doc){
+        alert(JSON.stringify(doc));
     }).catch(function(err){
-        console.log(err);
+        alert(err.message);
     });
 }
 
@@ -252,40 +266,43 @@ storeBarcodeController.prototype.fetchDoc = function(){
 
 }
 
-
 //temporary queries
 storeBarcodeController.prototype.query = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-    db.query(function(doc, emit){
-        emit(doc.name);
-    }, {key: 'Card Name 2'}).then(function(result){
-        alert(JSON.stringify(result));
-    }).catch(function(err){
 
+    db.query(function (doc, emit) {
+        emit(doc.title);
+    }, {key : 'Cool'}).then(function (result) {
+        alert("This is that Doc" + JSON.stringify(result.rows[0].id));
+        tempID = JSON.stringify(result.rows[0].id);
+        alert("tempID " + tempID);
+    }).catch(function (err) {
+        alert("Can not find it");
     });
+
 }
 
 //create database services
-myApp.factory('DBService', ['$q', DBService]);
-
-function DBService($q){
-    var _db;
-    var _barcode;
-
-    return{
-        initDB: initDB,
-    };
-
-    function initDB(){
-        _db = new PouchDB('barcode', {adapter : 'websql'});
-    };
-}
-
-function addDoc(doc){
-    return $q.when(_db.post(doc));
-};
-
-function deleteDoc(doc){
-    return $q.when(_db.remove(doc));
-};
+//myApp.factory('DBService', ['$q', DBService]);
+//
+//function DBService($q){
+//    var _db;
+//    var _barcode;
+//
+//    return{
+//        initDB: initDB,
+//    };
+//
+//    function initDB(){
+//        _db = new PouchDB('barcode', {adapter : 'websql'});
+//    };
+//}
+//
+//function addDoc(doc){
+//    return $q.when(_db.post(doc));
+//};
+//
+//function deleteDoc(doc){
+//    return $q.when(_db.remove(doc));
+//};
 

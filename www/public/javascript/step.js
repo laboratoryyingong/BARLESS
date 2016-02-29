@@ -1,5 +1,7 @@
 var barcodeInfo = [];
-var stepTrigger = 0;
+
+//step forward trigger, 0 is stop, 1 is go-on
+var stepTrigger = 1;
 
 //init page
 $(document).ready(function() {
@@ -12,7 +14,7 @@ $(document).ready(function() {
 $('.right').click(function(){
     if(stepTrigger == 1){
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
-        stepTrigger = 0;
+//        stepTrigger = 0;
     }else{
         alert("Please press icon to scan!");
     }
@@ -25,27 +27,39 @@ $('.left').click(function(){
 });
 
 //image capture + resize function
-var cameraOptions = {
-    quality: 100,
-    targetWidth: 480,
-    targetHeight: 480,
-    destinationType: Camera.DestinationType.DATA_URL,
-    correctOrientation: true
-}
+//var cameraOptions = {
+//    quality: 90,
+//    targetWidth: 480,
+//    targetHeight: 480,
+//    destinationType: navigator.camera.DestinationType.DATA_URL,
+//    correctOrientation: true
+//};
 
 var tempImageData;
 
 function takePicture(){
-    alert("Please take a picture of your card!");
-    navigator.camera.getPicture(function onSuccess(imageData){
-            var image = document.getElementById('image');
+    var image = document.getElementById('image');
+    if(image.src != null){
+
+        navigator.camera.getPicture(function onSuccess(imageData){
+            alert("Successfully get data" + imageData);
             image.src = "data:image/jpeg;base64," + imageData;
             tempImageData = imageData;
             //step trigger
             stepTrigger = 1;
-    }, function onFail(message){
-        console.log(message);
-    }, cameraOptions);
+        }, function onFail(message){
+            alert("Opps, not successful" + message);
+        }, {
+            quality: 90,
+            targetWidth: 480,
+            targetHeight: 480,
+            destinationType: navigator.camera.DestinationType.DATA_URL,
+            correctOrientation: true
+        });
+
+    }else{
+
+    }
 
 };
 

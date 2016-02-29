@@ -75,8 +75,11 @@
                 <div class="panel-header">
                     <div class="notificationIcon"><a class="left">BACK</a></div>
                     <div class="notificationIcon"><a class="store" ng-click="db.click()">Save Barcode</a></div>
-                    <div class="notificationIcon"><a class="store" ng-click="db.init()">delete Barcode</a></div>
+<!--
+                    <div class="notificationIcon"><a class="store" ng-click="db.init()">init Barcode</a></div>
+                    <div class="notificationIcon"><a class="store" ng-click="db.query()">query Barcode</a></div>
                     <div class="notificationIcon"><a class="store" ng-click="db.deleteDB()">delete Barcode</a></div>
+-->
                 </div>
 
                 <div class="frame" onclick="">
@@ -91,10 +94,14 @@
                 <br/>
                 <div class="imageWrap">
                     <form>
-                        <input id="stepInput" class="stepInput" placeholder="Name Your Card"></input>
-                        <textarea id="notebook" class="notebook" rows="7" cols="60">Type notes here...</textarea>
+                        <input id="stepInput" class="stepInput" type="text" placeholder="{{inputPlaceholder}}"
+                               ng-model="card.name"></input>
+                        <textarea id="notebook" class="notebook" type="text" placeholder="{{textPlaceholder}}"          rows="7" cols="60"
+                               ng-model="card.context"></textarea>
                     </form>
 
+                <tt>name = {{card.name}}</tt><br/>
+                <tt>context = {{card.context}}</tt><br/>
                 </div>
             </div>
           </div>
