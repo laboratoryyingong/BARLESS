@@ -74,12 +74,9 @@
             <div id="step3" class="tab-pane fade">
                 <div class="panel-header">
                     <div class="notificationIcon"><a class="left">BACK</a></div>
-                    <div class="notificationIcon"><a class="store" ng-click="db.click()">Save Barcode</a></div>
-<!--
-                    <div class="notificationIcon"><a class="store" ng-click="db.init()">init Barcode</a></div>
-                    <div class="notificationIcon"><a class="store" ng-click="db.query()">query Barcode</a></div>
+                    <div class="notificationIcon"><a id="saveBtn" class="store" ng-click="db.save()">Save Barcode</a></div>
+                    <div class="notificationIcon"><a id="queryBtn" class="store" ng-click="db.query()" style="display: none">query Barcode</a></div>
                     <div class="notificationIcon"><a class="store" ng-click="db.deleteDB()">delete Barcode</a></div>
--->
                 </div>
 
                 <div class="frame" onclick="">
@@ -95,9 +92,11 @@
                 <div class="imageWrap">
                     <form>
                         <input id="stepInput" class="stepInput" type="text" placeholder="{{inputPlaceholder}}"
-                               ng-model="card.name"></input>
-                        <textarea id="notebook" class="notebook" type="text" placeholder="{{textPlaceholder}}"          rows="7" cols="60"
-                               ng-model="card.context"></textarea>
+                               ng-model="card.name">
+                        </input>
+                        <textarea id="notebook" class="notebook" type="text" placeholder="{{textPlaceholder}}"            rows="7" cols="60"
+                               ng-model="card.context">
+                        </textarea>
                     </form>
 
                 <tt>name = {{card.name}}</tt><br/>

@@ -1,3 +1,4 @@
+//global barcode information
 var barcodeInfo = [];
 
 //step forward trigger, 0 is stop, 1 is go-on
@@ -5,12 +6,10 @@ var stepTrigger = 1;
 
 //init page
 $(document).ready(function() {
-
     resizeDiv();
-
 });
 
-//tab control
+//bind tab control
 $('.right').click(function(){
     if(stepTrigger == 1){
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
@@ -78,7 +77,11 @@ function scanCode() {
         barcodeInfo[0] = result.text;
         barcodeInfo[1] = result.format;
         barcodeInfo[2] = result.cancelled;
-        encodeData();
+        encodeData().then(
+            convertToDataURLviaCanvas('http://bit.ly/18g0VNp', function(base64Img){
+                console.log("based64Img of barcode is" + base64Img);
+            });
+        );
         if (result.text != null && result.cancelled != true){
             stepTrigger = 1;
             console.log("scan successfully!")
@@ -128,5 +131,24 @@ function encodeData(){
         alert("no context");
     }
 
+}
+
+//barcode image to Based64 functions
+
+function convertToDataURLviaCanvas(url, callback, outputFormat){
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function(){
+        var canvas = document.createElement('CANVAS');
+        var ctx = canvas.getContext('2d');
+        var dataURL;
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this, 0, 0);
+        dataURL = canvas.toDataURL(outputFormat);
+        callback(dataURL);
+        canvas = null;
+    };
+    img.src = url;
 }
 

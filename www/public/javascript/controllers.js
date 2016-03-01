@@ -127,13 +127,15 @@ function storeBarcodeController($scope){
 }
 
 
-storeBarcodeController.prototype.click = function(){
+storeBarcodeController.prototype.save = function(){
 //  init database
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
 
 //  various of explaination
     var name = document.getElementById('stepInput').value;
     var context = btoa(document.getElementById('notebook').value);
+    var saveBtn = document.getElementById('saveBtn');
+    var queryBtn = document.getElementById('queryBtn');
 
     if (typeof window != "undefined"){
         window.PouchDB = PouchDB};
@@ -141,8 +143,12 @@ storeBarcodeController.prototype.click = function(){
     if (name != null && context != null){
         db.post({
                     title : name,
+                    info : {
+                        'barcode_text' : barcodeInfo[0],
+                        'barcode_format' : barcodeInfo[1]
+                    },
                     _attachments : {
-                        'barcode_img' : {
+                        'card_img' : {
                             content_type : 'image/jpeg',
                             data : tempImageData
                         },
@@ -154,11 +160,14 @@ storeBarcodeController.prototype.click = function(){
                 }
         ).then(function(response){
             alert("insert your new Doc" + JSON.stringify(response));
+            saveBtn.style.display = "none";
+            queryBtn.style.display = "";
+
         }).catch(function(err){
             alert(err);
         });
     }else{
-        alert("Please fill all!");
+        alert("Please Check all form!");
     }
 
 }
@@ -199,16 +208,16 @@ storeBarcodeController.prototype.init = function(){
 //delete database
 storeBarcodeController.prototype.deleteDB = function(){
     var db = new PouchDB('LocalDB', {adapter : 'websql'});
-//    db.destroy().then(function(response){
-//        alert("bar-code has been deleted");
-//    }).catch(function(err){
-//        console.log(err);
-//    });
-    db.get('mydoc', {attachments: true}).then(function(doc){
-        alert(JSON.stringify(doc));
+    db.destroy().then(function(response){
+        alert("bar-code has been deleted");
     }).catch(function(err){
-        alert(err.message);
+        console.log(err);
     });
+//    db.get('mydoc', {attachments: true}).then(function(doc){
+//        alert(JSON.stringify(doc));
+//    }).catch(function(err){
+//        alert(err.message);
+//    });
 }
 
 //database info
@@ -282,27 +291,21 @@ storeBarcodeController.prototype.query = function(){
 
 }
 
-//create database services
-//myApp.factory('DBService', ['$q', DBService]);
-//
-//function DBService($q){
-//    var _db;
-//    var _barcode;
-//
-//    return{
-//        initDB: initDB,
-//    };
-//
-//    function initDB(){
-//        _db = new PouchDB('barcode', {adapter : 'websql'});
-//    };
-//}
-//
-//function addDoc(doc){
-//    return $q.when(_db.post(doc));
-//};
-//
-//function deleteDoc(doc){
-//    return $q.when(_db.remove(doc));
-//};
+//functions
 
+function convertToDataURLviaCanvas(url, callback, outputFormat){
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function(){
+        var canvas = document.createElement('CANVAS');
+        var ctx = canvas.getContext('2d');
+        var dataURL;
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this, 0, 0);
+        dataURL = canvas.toDataURL(outputFormat);
+        callback(dataURL);
+        canvas = null;
+    };
+    img.src = url;
+}
