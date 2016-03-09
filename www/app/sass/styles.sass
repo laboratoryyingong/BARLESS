@@ -113,7 +113,12 @@ a
         display: inline-block
         float: left
         font-size: 35px
-
+        a
+            i
+                color: black
+            &:hover
+                cursor: pointer
+                color: purple
     .notificationIcon
         margin-left: 0.6em
         margin-right: 0.6em
@@ -375,7 +380,7 @@ a
     width: 110%
 
     @media screen and (min-width: $small-screen)
-        height: 350px
+        height: 250px
         left: -20px
     @media screen and (max-width: $large-screen)
         height: 160px
@@ -626,7 +631,7 @@ a
                 transform: scale(1.5)
         img
             @media screen and (min-width: $small-screen)
-                height: 300px
+                height: 200px
             @media screen and (max-width: $large-screen)
                 height: 110px
             width: auto
@@ -635,7 +640,7 @@ a
             padding: 15px 10px 15px 10px
         .grid-text
             @media screen and (min-width: $small-screen)
-                height: 290px
+                height: 190px
             @media screen and (max-width: $large-screen)
                 height: 100px
             width: auto

@@ -78,6 +78,11 @@ a {
     display: inline-block;
     float: left;
     font-size: 35px; }
+    .panel-header .mainIcon a i {
+      color: black; }
+    .panel-header .mainIcon a:hover {
+      cursor: pointer;
+      color: purple; }
   .panel-header .notificationIcon {
     margin-left: 0.6em;
     margin-right: 0.6em; }
@@ -379,7 +384,7 @@ a {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
   @media screen and (min-width: 320px) {
     .item {
-      height: 350px;
+      height: 250px;
       left: -20px; } }
   @media screen and (max-width: 1200px) {
     .item {
@@ -620,7 +625,7 @@ a {
     padding: 15px 10px 15px 10px; }
     @media screen and (min-width: 320px) {
       .gallery-content .grid-item img {
-        height: 300px; } }
+        height: 200px; } }
     @media screen and (max-width: 1200px) {
       .gallery-content .grid-item img {
         height: 110px; } }
@@ -632,7 +637,7 @@ a {
     overflow: hidden; }
     @media screen and (min-width: 320px) {
       .gallery-content .grid-item .grid-text {
-        height: 290px; } }
+        height: 190px; } }
     @media screen and (max-width: 1200px) {
       .gallery-content .grid-item .grid-text {
         height: 100px; } }

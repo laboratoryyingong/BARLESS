@@ -1,4 +1,4 @@
-var myApp = angular.module('todoApp', ['ui.sortable']);
+var myApp = angular.module('todoApp', ['ui.sortable', 'ui.bootstrap']);
 var stepApp = angular.module('stepApp', []);
 var tempID;
 
@@ -36,14 +36,14 @@ myApp.directive('customModals', function( $http, $compile){
 
 myApp.controller('sortableController', function($scope) {
 
-
   var tmpList = [];
   for (var i = 1; i <= 2; i++){
     tmpList.push({
-      id: 'item' + i,
-      text: 'BarCode ' + i,
-      number: 'BNVSD1231231',
-      value: i
+      id : 'item' + i,
+      barcodeImg : 'public/img/lib-pictures/barCode.png'
+//      text: 'BarCode ' + i,
+//      number: 'BNVSD1231231',
+//      value: i
     });
   }
 
@@ -112,7 +112,57 @@ myApp.controller('sortableController', function($scope) {
 
 });
 
+myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 
+  $scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.animationsEnabled = true;
+
+  $scope.open = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+});
+
+// Please note that $uibModalInstance represents a modal window (instance) dependency.
+// It is not the same as the $uibModal service used above.
+
+myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $uibModalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+});
 //step module controller
 stepApp.controller('storeBarcodeController', ['$scope', storeBarcodeController]);
 
@@ -136,6 +186,9 @@ storeBarcodeController.prototype.save = function(){
     var context = btoa(document.getElementById('notebook').value);
     var saveBtn = document.getElementById('saveBtn');
     var queryBtn = document.getElementById('queryBtn');
+// get create barcode img based64 string
+    var barcodeImg = document.getElementById('barcode');
+    var barcodeImgSrc = barcodeImg.src.split(',');
 
     if (typeof window != "undefined"){
         window.PouchDB = PouchDB};
@@ -148,6 +201,10 @@ storeBarcodeController.prototype.save = function(){
                         'barcode_format' : barcodeInfo[1]
                     },
                     _attachments : {
+                        'barcode_img' : {
+                            content_type : 'image/png',
+                            data : barcodeImgSrc[1]
+                        },
                         'card_img' : {
                             content_type : 'image/jpeg',
                             data : tempImageData
@@ -159,9 +216,7 @@ storeBarcodeController.prototype.save = function(){
                     }
                 }
         ).then(function(response){
-            alert("insert your new Doc" + JSON.stringify(response));
-            saveBtn.style.display = "none";
-            queryBtn.style.display = "";
+            alert("Your barcode has been saved, Thanks");
 
         }).catch(function(err){
             alert(err);
@@ -293,19 +348,3 @@ storeBarcodeController.prototype.query = function(){
 
 //functions
 
-function convertToDataURLviaCanvas(url, callback, outputFormat){
-    var img = new Image();
-    img.crossOrigin = 'Anonymous';
-    img.onload = function(){
-        var canvas = document.createElement('CANVAS');
-        var ctx = canvas.getContext('2d');
-        var dataURL;
-        canvas.height = this.height;
-        canvas.width = this.width;
-        ctx.drawImage(this, 0, 0);
-        dataURL = canvas.toDataURL(outputFormat);
-        callback(dataURL);
-        canvas = null;
-    };
-    img.src = url;
-}

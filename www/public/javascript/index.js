@@ -70,9 +70,10 @@ $('#reload').click(function(){
 });
 
 
-//resise windows
+//resise windows: different f
 function resizeDiv(){
     vpw = $(window).width();
     vph = $(window).height();
+    $('#mainbody').css({'height': (vph - 140) + 'px'});
 
 }

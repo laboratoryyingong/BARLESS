@@ -9,7 +9,7 @@
             },
     "_attachments" : {
             "barcode_img" : {
-                "contect_type" : "data:image/jpeg;base64,",
+                "contect_type" : "data:image/png;base64,",
                 "data" : "Exp:TGVnZW5kYXJ5IGhlYXJ0cywgdGVhciB1cyBhbGwgYXBhcnQKTWFrZS"
             },
             "card_img" : {

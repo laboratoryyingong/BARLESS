@@ -14,6 +14,7 @@ $('.right').click(function(){
     if(stepTrigger == 1){
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
 //        stepTrigger = 0;
+
     }else{
         alert("Please press icon to scan!");
     }
@@ -41,7 +42,7 @@ function takePicture(){
     if(image.src != null){
 
         navigator.camera.getPicture(function onSuccess(imageData){
-            alert("Successfully get data" + imageData);
+//            alert("Successfully get data" + imageData);
             image.src = "data:image/jpeg;base64," + imageData;
             tempImageData = imageData;
             //step trigger
@@ -77,11 +78,10 @@ function scanCode() {
         barcodeInfo[0] = result.text;
         barcodeInfo[1] = result.format;
         barcodeInfo[2] = result.cancelled;
-        encodeData().then(
-            convertToDataURLviaCanvas('http://bit.ly/18g0VNp', function(base64Img){
-                console.log("based64Img of barcode is" + base64Img);
-            });
-        );
+        encodeData();
+
+
+
         if (result.text != null && result.cancelled != true){
             stepTrigger = 1;
             console.log("scan successfully!")
@@ -133,22 +133,4 @@ function encodeData(){
 
 }
 
-//barcode image to Based64 functions
-
-function convertToDataURLviaCanvas(url, callback, outputFormat){
-    var img = new Image();
-    img.crossOrigin = 'Anonymous';
-    img.onload = function(){
-        var canvas = document.createElement('CANVAS');
-        var ctx = canvas.getContext('2d');
-        var dataURL;
-        canvas.height = this.height;
-        canvas.width = this.width;
-        ctx.drawImage(this, 0, 0);
-        dataURL = canvas.toDataURL(outputFormat);
-        callback(dataURL);
-        canvas = null;
-    };
-    img.src = url;
-}
 
