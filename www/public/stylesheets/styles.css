@@ -79,7 +79,7 @@ a {
     float: left;
     font-size: 35px; }
     .panel-header .mainIcon a i {
-      color: black; }
+      color: #94004a; }
     .panel-header .mainIcon a:hover {
       cursor: pointer;
       color: purple; }
@@ -385,11 +385,15 @@ a {
   @media screen and (min-width: 320px) {
     .item {
       height: 250px;
-      left: -20px; } }
+      left: -20px;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em; } }
   @media screen and (max-width: 1200px) {
     .item {
       height: 160px;
-      left: -20px; } }
+      left: -20px;
+      border-top-left-radius: 1em;
+      border-top-right-radius: 1em; } }
   .item:hover {
     background-color: #fafafa; }
   .item:after {
@@ -444,19 +448,20 @@ a {
   cursor: pointer; }
 
 .viewHead {
-  background-color: #e5e5e5;
+  background-color: #eb5266;
   height: 50px;
   display: block;
   padding: 10px;
-  color: #fafafa; }
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em; }
 
 .viewIcon {
   margin-right: 20px;
   font-size: 20px;
   float: left; }
   .viewIcon i {
-    color: black;
-    font-size: 30px; }
+    color: #92003c;
+    font-size: 25px; }
 
 .viewTitle {
   margin-right: 20px;
@@ -476,8 +481,8 @@ a {
     font-size: 15px; }
 
 .viewMove i {
-  color: black;
-  font-size: 30px;
+  color: #92003c;
+  font-size: 25px;
   display: table-cell;
   vertical-align: top; }
 
@@ -625,10 +630,12 @@ a {
     padding: 15px 10px 15px 10px; }
     @media screen and (min-width: 320px) {
       .gallery-content .grid-item img {
-        height: 200px; } }
+        height: 200px;
+        margin: auto; } }
     @media screen and (max-width: 1200px) {
       .gallery-content .grid-item img {
-        height: 110px; } }
+        height: 110px;
+        margin: auto; } }
   .gallery-content .grid-item .grid-text {
     width: auto;
     padding: 15px 10px 15px 10px;

@@ -26,6 +26,10 @@ $large-screen: 1200px
     -o-transition:      $obj $speed $Curve
     transition:         $obj $speed $Curve
 
+=radiusTop($size)
+    border-top-left-radius: $size
+    border-top-right-radius: $size
+
 //slide test
 .normalise
     font: 100%/1.4em 'Helvetica Neue',Helvetica,Arial,sans-serif
@@ -115,7 +119,7 @@ a
         font-size: 35px
         a
             i
-                color: black
+                color: #94004a
             &:hover
                 cursor: pointer
                 color: purple
@@ -382,9 +386,11 @@ a
     @media screen and (min-width: $small-screen)
         height: 250px
         left: -20px
+        +radiusTop(1em)
     @media screen and (max-width: $large-screen)
         height: 160px
         left: -20px
+        +radiusTop(1em)
 
     background-color: #fafafa
     margin-top: 0
@@ -449,19 +455,20 @@ a
 
 //view css
 .viewHead
-    background-color: #e5e5e5
+    background-color: #eb5266
     height: 50px
     display: block
     padding: 10px
-    color: #fafafa
+    border-top-left-radius: 1em
+    border-top-right-radius: 1em
 
 .viewIcon
     margin-right: 20px
     font-size: 20px
     float: left
     i
-        color: black
-        font-size: 30px
+        color: #92003c
+        font-size: 25px
 
 .viewTitle
     margin-right: 20px
@@ -482,8 +489,8 @@ a
 
 .viewMove
     i
-        color: black
-        font-size: 30px
+        color: #92003c
+        font-size: 25px
         display: table-cell
         vertical-align: top
 
@@ -632,8 +639,10 @@ a
         img
             @media screen and (min-width: $small-screen)
                 height: 200px
+                margin: auto
             @media screen and (max-width: $large-screen)
                 height: 110px
+                margin: auto
             width: auto
             webkit-transition: all 0.5s ease
             transition: all 0.5s ease

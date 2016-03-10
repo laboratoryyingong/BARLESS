@@ -47,9 +47,10 @@
     <main id="panel" class="panel">
 
     <div ng-controller="ModalDemoCtrl">
+        <!--modal-->
         <script type="text/ng-template" id="myModalContent.html">
             <div class="modal-header">
-                <h3 class="modal-title">I'm a modal!</h3>
+                <h3 class="modal-title">{{ title }}</h3>
             </div>
             <div class="modal-body">
                 <ul>
@@ -63,23 +64,28 @@
                 <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
             </div>
+
         </script>
 
-        <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+<!--        <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>-->
+<!--
         <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
         <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
         <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
         <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-    </div>
+-->
+
 
 
         <header class="panel-header">
         <!--          <button class="js-slideout-toggle">Menu Button</button>-->
             <div class="box-shadow-menu js-slideout-toggle"></div>
             <!--          <div class="mainIcon"><i class="fa fa-camera-retro" id="startScan"></i></div>-->
-            <div class="mainIcon"><a><i class="fa fa-filter"></i></a></div>
+            <div class="mainIcon"><a ng-click="open()"><i class="fa fa-filter"></i></a></div>
             <div class="mainIcon"><a href="step.html"><i class="fa fa-floppy-o"></i></a></div>
         </header>
+
+    </div>
 
     <!--display modal example-->
     <!--
@@ -93,6 +99,8 @@
 
 <!--main unit-->
     <div id="mainbody" ng-controller="sortableController" class="barCodeContainer">
+                <button ng-click="delete()">delete</button>
+                <button ng-click="add()">add</button>
         <div class="row">
             <div class="col-xs-11">
                 <ul ui-sortable="sortableOptions" ng-model="list" class="list">
@@ -101,7 +109,7 @@
                             <div class="viewHead">
                                 <span class="viewIcon"><span class="myHandle"><i class="fa fa-th-list"></i></span></span>
                                 <span class="viewTitle"><span class="viewMove"><i class="fa fa-times"></i></span></span>
-                                <span class="viewIcon"><i class="fa fa-credit-card-alt"></i></span>
+<!--                                <span class="viewIcon"><i class="fa fa-credit-card-alt"></i></span>-->
 <!--                            <div class="viewTitle"><span>{{item.text}}</span></div>-->
                             </div>
                             <div class="viewContent">

@@ -34,24 +34,21 @@ myApp.directive('customModals', function( $http, $compile){
 
 });
 
-myApp.controller('sortableController', function($scope) {
+myApp.controller('sortableController', function($scope,$uibModal,$log) {
 
-  var tmpList = [];
-  for (var i = 1; i <= 2; i++){
-    tmpList.push({
-      id : 'item' + i,
-      barcodeImg : 'public/img/lib-pictures/barCode.png'
-//      text: 'BarCode ' + i,
-//      number: 'BNVSD1231231',
-//      value: i
-    });
-  }
+    var tmpList = [];
+    for (var i = 1; i <= 2; i++){
+        tmpList.push({
+          id : 'item' + i,
+          barcodeImg : 'public/img/lib-pictures/barCode.png'
+        });
+    }
 
-  $scope.list = tmpList;
+    $scope.list = tmpList;
 
-  $scope.sortingLog = [];
+    $scope.sortingLog = [];
 
-  $scope.sortableOptions = {
+    $scope.sortableOptions = {
     handle: '.myHandle',
     activate: function() {
         console.log("activate");
@@ -69,7 +66,8 @@ myApp.controller('sortableController', function($scope) {
         console.log("deactivate");
     },
     out: function() {
-        console.log("out");
+        $log.info("out function activated, will remove this item");
+
     },
     over: function() {
         console.log("over");
@@ -105,16 +103,39 @@ myApp.controller('sortableController', function($scope) {
     }
   };
 
-//new test
-  $scope.test = function(){
-       console.log("button clicked");
-   };
+    $scope.delete = function(){
+        $log.info("The button is pressed to delete");
+        tmpList.splice(0,1);
+    };
+
+    $scope.add = function(){
+        $log.info("The button is pressed to add");
+
+        tmpList.push({
+            id : 'new item',
+            barcodeImg : 'public/img/lib-pictures/barCode.png'
+        });
+    };
 
 });
 
-myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
+myApp.controller('ModalDemoCtrl', function ($scope, $log) {
+    //  init pouch database
+    var db = new PouchDB('LocalDB', {adapter : 'websql'});
 
-  $scope.items = ['item1', 'item2', 'item3'];
+    // get all docs _ids
+    db.allDocs({
+        include_docs: false,
+        attachements: false
+    }).then(function(result){
+        //handle result
+        $log.info("Return result message " + JSON.stringify(result.rows[0].id));
+    }).catch(function(err){
+        $log.info("Return error message " + err);
+    });
+
+
+  $scope.items = ['item1', 'item2'];
 
   $scope.animationsEnabled = true;
 
@@ -150,6 +171,7 @@ myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 
 myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
 
+  $scope.title = 'This is a random title';
   $scope.items = items;
   $scope.selected = {
     item: $scope.items[0]
@@ -163,6 +185,7 @@ myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items
     $uibModalInstance.dismiss('cancel');
   };
 });
+
 //step module controller
 stepApp.controller('storeBarcodeController', ['$scope', storeBarcodeController]);
 
