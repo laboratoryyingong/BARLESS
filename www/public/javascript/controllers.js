@@ -34,7 +34,7 @@ myApp.directive('customModals', function( $http, $compile){
 
 });
 
-myApp.controller('sortableController', function($scope,$uibModal,$log) {
+myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$q) {
 
     var tmpList = [];
     for (var i = 1; i <= 2; i++){
@@ -43,6 +43,7 @@ myApp.controller('sortableController', function($scope,$uibModal,$log) {
           barcodeImg : 'public/img/lib-pictures/barCode.png'
         });
     }
+
 
     $scope.list = tmpList;
 
@@ -66,7 +67,48 @@ myApp.controller('sortableController', function($scope,$uibModal,$log) {
         console.log("deactivate");
     },
     out: function() {
-        $log.info("out function activated, will remove this item");
+//        $log.info("out function activated, will remove this item");
+
+        var func = function(){
+            var deffered = $q.defer();
+            setTimeout(function(){
+                angular.element('#open').triggerHandler('click');
+                deffered.notify('Modal open');
+            }, 100);
+
+//            $log.info(deffered.promise);
+            return deffered.promise;
+        };
+
+        var promise = func();
+        promise.then(function(rest){
+            $log.info("info: " + rest);
+        }, function(reason){
+            $log.info("fail info: " + reason);
+        }, function(update){
+            $log.info("update info: " + update);
+
+            var modalInstance = $uibModal.open({
+              animation: $scope.animationsEnabled,
+              templateUrl: 'myModalContent.html',
+              controller: 'ModalInstanceCtrl',
+//              size: size,
+              resolve: {
+                items: function () {
+//                  return $scope.items;
+                    return;
+                }
+              }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+              $scope.selected = selectedItem;
+            }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+            });
+
+        });
+
 
     },
     over: function() {
@@ -117,48 +159,52 @@ myApp.controller('sortableController', function($scope,$uibModal,$log) {
         });
     };
 
+    $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
 });
 
-myApp.controller('ModalDemoCtrl', function ($scope, $log) {
+myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
     //  init pouch database
-    var db = new PouchDB('LocalDB', {adapter : 'websql'});
+//    var db = new PouchDB('LocalDB', {adapter : 'websql'});
 
     // get all docs _ids
-    db.allDocs({
-        include_docs: false,
-        attachements: false
-    }).then(function(result){
-        //handle result
-        $log.info("Return result message " + JSON.stringify(result.rows[0].id));
-    }).catch(function(err){
-        $log.info("Return error message " + err);
-    });
+//    db.allDocs({
+//        include_docs: false,
+//        attachements: false
+//    }).then(function(result){
+//        //handle result
+//        $log.info("Return result message " + JSON.stringify(result.rows[0].id));
+//    }).catch(function(err){
+//        $log.info("Return error message " + err);
+//    });
 
 
   $scope.items = ['item1', 'item2'];
 
   $scope.animationsEnabled = true;
 
-  $scope.open = function (size) {
-
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
+//  $scope.open = function (size) {
+//
+//    var modalInstance = $uibModal.open({
+//      animation: $scope.animationsEnabled,
+//      templateUrl: 'myModalContent.html',
+//      controller: 'ModalInstanceCtrl',
+//      size: size,
+//      resolve: {
+//        items: function () {
+//          return $scope.items;
+//        }
+//      }
+//    });
+//
+//    modalInstance.result.then(function (selectedItem) {
+//      $scope.selected = selectedItem;
+//    }, function () {
+//      $log.info('Modal dismissed at: ' + new Date());
+//    });
+//  };
 
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
@@ -174,7 +220,7 @@ myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items
   $scope.title = 'This is a random title';
   $scope.items = items;
   $scope.selected = {
-    item: $scope.items[0]
+//    item: $scope.items[0]
   };
 
   $scope.ok = function () {
