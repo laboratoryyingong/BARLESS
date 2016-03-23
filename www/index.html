@@ -159,7 +159,46 @@
             </div>
         </div>
 
-      <div class="clear"></div>
+        <div class="clear"></div>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="carousel-text">
+                  <span>Select a barcode printer that is fully capable of meeting requirements for durability, legibility, and speed of barcode generation.<br>--Max.G</span>
+                  <br>
+
+              </div>
+            </div>
+            <div class="item">
+             <div class="carousel-text">
+                 <span>Choosing the right barcode label can make a huge difference in your cost-savings.<br>-- Sales manager</span>
+              </div>
+            </div>
+            <div class="item">
+             <div class="carousel-text">
+                 <span>Barcodes became commercially successful when they were used to automate supermarket checkout systems.<br><small>--Barcode History</small></span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls -->
+          <a id="leftArrow" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="fa fa-chevron-left"></span>
+          </a>
+          <a id="rightArrow" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="fa fa-chevron-right"></span>
+          </a>
+        </div> <!-- Carousel -->
 
     </div>
 <!--end test unit-->
@@ -195,6 +234,13 @@
 <!--internal controller-->
     <script src="public/javascript/index.js" type="text/javascript"></script>
     <script src="public/javascript/controllers.js" type="text/javascript"></script>
+
+
+    <script>
+    $('.carousel').carousel({
+        interval: 3000
+    })
+    </script>
 
 <!--test unit-->
 <!--    <script src="../public/javascript/Protractor.js" type="text/javascript"></script>-->

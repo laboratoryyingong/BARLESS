@@ -146,7 +146,7 @@ myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$
   };
 
     $scope.delete = function(){
-        $log.info("The button is pressed to delete");
+        $log.warn("you are a bad guys");
         tmpList.splice(0,1);
     };
 

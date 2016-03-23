@@ -380,8 +380,7 @@ a {
   margin-bottom: 30px;
   position: relative;
   transition: all 0.3s linear;
-  background-color: #fff;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); }
+  background-color: #fff; }
   @media screen and (min-width: 320px) {
     .item {
       height: 250px;
@@ -753,5 +752,35 @@ input::-ms-input-placeholder {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   border-radius: 15px; }
+
+.carousel-control span {
+  position: absolute;
+  top: 40%;
+  left: 23%;
+  font-size: 1.5em;
+  color: #94004a; }
+
+.carousel-text span {
+  position: absolute;
+  top: 40%;
+  left: 13%;
+  font-size: 1em;
+  color: #94004a;
+  height: 60px;
+  width: 280px;
+  height: 36px;
+  text-align: center; }
+  .carousel-text span small {
+    text-align: right;
+    position: absolute; }
+
+#carousel-example-generic ol li {
+  background: #94004a; }
+
+#leftArrow {
+  background: transparent; }
+
+#rightArrow {
+  background: transparent; }
 
 /*# sourceMappingURL=styles.css.map */

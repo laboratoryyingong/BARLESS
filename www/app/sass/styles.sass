@@ -398,7 +398,7 @@ a
     position: relative
     transition: all 0.3s linear
     background-color: #fff
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15)
+    //box-shadow: 0 0 25px rgba(0, 0, 0, 0.15)
     &:hover
         background-color: #fafafa
     &:after
@@ -767,3 +767,42 @@ input::-ms-input-placeholder
     padding: 1em
     border: 1px solid black
     +border-radius(15px)
+
+
+//    carousel-control
+.carousel-control
+    span
+        position: absolute
+        top: 40%
+        left: 23%
+        font-size: 1.5em
+        color: #94004a
+
+.carousel-text
+    span
+        position: absolute
+        top: 40%
+        left: 13%
+        font-size: 1em
+        color: #94004a
+
+        @media screen and (min-width: $small-screen)
+        height: 60px
+        width: 280px
+
+        @media screen and (max-width: $large-screen)
+        height: 36px
+        text-align: center
+        small
+            text-align: right
+            position: absolute
+
+#carousel-example-generic
+    ol
+        li
+            background: #94004a
+
+#leftArrow
+    background: transparent
+#rightArrow
+    background: transparent
