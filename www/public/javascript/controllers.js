@@ -2,6 +2,19 @@ var myApp = angular.module('todoApp', ['ui.sortable', 'ui.bootstrap']);
 var stepApp = angular.module('stepApp', []);
 var tempID;
 
+//Services layers
+myApp.factory("Service", function(){
+    var users = ["user1", "user2", "user 3"];
+    var deleteTrigger = ["0", "1", "2"];
+
+    return {
+        delete : function(){
+            return deleteTrigger[0];
+        }
+    };
+});
+
+
 //first page controller
 myApp.filter('greet', function(){
     return function(name){
@@ -34,7 +47,9 @@ myApp.directive('customModals', function( $http, $compile){
 
 });
 
-myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$q) {
+myApp.controller('sortableController', function($scope, $uibModal, $log, $timeout, $q, Service) {
+
+    //$log.info(Service.delete() + "Trigger");
 
     var tmpList = [];
     for (var i = 1; i <= 2; i++){
@@ -43,7 +58,6 @@ myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$
           barcodeImg : 'public/img/lib-pictures/barCode.png'
         });
     }
-
 
     $scope.list = tmpList;
 
@@ -146,7 +160,6 @@ myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$
   };
 
     $scope.delete = function(){
-        $log.warn("you are a bad guys");
         tmpList.splice(0,1);
     };
 
@@ -159,13 +172,25 @@ myApp.controller('sortableController', function($scope,$uibModal,$log,$timeout,$
         });
     };
 
+    $log.info(Service.delete());
+    $scope.$watch('Service.delete()', function(newVal){
+        $log.info('DeleteTrigger changes into: ', newVal);
+    }, true);
+
+    if(Service.delete() == 1){
+        $log.info("Delete function is successfully triggered");
+        tmpList.splice(0,1);
+    }else{
+        $log.info("Delete function is not triggered");
+    }
+
     $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
 });
 
-myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
+myApp.controller('ModalDeleteCtrl', function ($scope, $uibModal, $log) {
     //  init pouch database
 //    var db = new PouchDB('LocalDB', {adapter : 'websql'});
 
@@ -180,9 +205,8 @@ myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 //        $log.info("Return error message " + err);
 //    });
 
-
+  $scope.title = "Do you want to hide this record?"
   $scope.items = ['item1', 'item2'];
-
   $scope.animationsEnabled = true;
 
 //  $scope.open = function (size) {
@@ -215,21 +239,24 @@ myApp.controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 // Please note that $uibModalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
 
-myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $log, items) {
 
-  $scope.title = 'This is a random title';
-  $scope.items = items;
-  $scope.selected = {
+
+    $scope.title = "BARCODE SCANNER"
+    $scope.items = items;
+    $scope.selected = {
 //    item: $scope.items[0]
-  };
+    };
 
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
+    $scope.ok = function () {
+        $uibModalInstance.close();
+        $log.warn("Next step to delete showing Recording");
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
 
 //step module controller
@@ -415,5 +442,5 @@ storeBarcodeController.prototype.query = function(){
 
 }
 
-//functions
+
 
