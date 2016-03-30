@@ -32,16 +32,20 @@
                     <div class="notificationIcon"><a class="right">NEXT</a></div>
                     <div class="notificationIcon"><a href="index.html" class="return">RETURN</a></div>
                 </div>
-
-                <div class="frame" onclick="scanCode();">
-                    <div class="hex-outer h1"></div>
-                    <div class="hex-outer h2"></div>
-                    <div class="hex-outer h3"></div>
-                    <div class="hex-inner h1"></div>
-                    <div class="hex-inner h2"></div>
-                    <div class="hex-inner h3"></div>
-                    <div class="stepIcon"><i class="fa fa-barcode"></i></div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="fmcircle_out" onclick="scanCode();">
+                            <a href="#web">
+                                <div class="fmcircle_border">
+                                    <div class="fmcircle_in fmcircle_red ">
+                                        <span>Scan Barcode</span><img src="public/img/stepImg/Scan_Icon.png" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <br />
                 <div class="imageWrap">
                     <img class="stepImg" id="barcode">
@@ -54,18 +58,40 @@
                     <div class="notificationIcon"><a class="left">BACK</a></div>
                 </div>
 
-                <div class="frame" onclick="takePicture();">
-                    <div class="hex-outer h1"></div>
-                    <div class="hex-outer h2"></div>
-                    <div class="hex-outer h3"></div>
-                    <div class="hex-inner h1"></div>
-                    <div class="hex-inner h2"></div>
-                    <div class="hex-inner h3"></div>
-                    <div class="stepIcon"><i class="fa fa-credit-card"></i></div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="fmcircle_out" onclick="takePictureFront();">
+                            <a href="#web">
+                                <div class="fmcircle_border">
+                                    <div class="fmcircle_in fmcircle_orange">
+                                        <span>Photo Card</span><img src="public/img/stepImg/Photo_Front.png" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="fmcircle_out" onclick="takePictureBack();">
+                            <a href="#web">
+                                <div class="fmcircle_border">
+                                    <div class="fmcircle_in fmcircle_orange">
+                                        <span>Photo Card</span><img src="public/img/stepImg/Photo_back.png" alt="" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <br/>
                 <div class="imageWrap">
-                    <img class="stepImg" id="image">
+                    <div class="imageDiv">
+                        <img class="stepImg" id="imageFront">
+                    </div>
+                    <div class="imageDiv">
+                        <img class="stepImg" id="imageBack" >
+                    </div>
                 </div>
 
 

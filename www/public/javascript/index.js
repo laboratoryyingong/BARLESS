@@ -61,7 +61,13 @@ $(document).ready(function() {
         }
     };
 
-    resizeDiv()
+    resizeDiv();
+
+    $('#quote-carousel').carousel({
+    pause: true,
+    interval: 400000,
+    });
+
 
 });
 

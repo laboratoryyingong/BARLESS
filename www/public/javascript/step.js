@@ -4,9 +4,15 @@ var barcodeInfo = [];
 //step forward trigger, 0 is stop, 1 is go-on
 var stepTrigger = 1;
 
+var tempWidth;
+var tempHeight;
+
 //init page
 $(document).ready(function() {
     resizeDiv();
+
+    $('.imageDiv').css({'height': ((tempHeight - 280)/2) + 'px'});
+
 });
 
 //bind tab control
@@ -37,12 +43,13 @@ $('.left').click(function(){
 
 var tempImageData;
 
-function takePicture(){
-    var image = document.getElementById('image');
+function takePictureFront(){
+    var image = document.getElementById('imageFront');
     if(image.src != null){
 
         navigator.camera.getPicture(function onSuccess(imageData){
 //            alert("Successfully get data" + imageData);
+
             image.src = "data:image/jpeg;base64," + imageData;
             tempImageData = imageData;
             //step trigger
@@ -50,11 +57,40 @@ function takePicture(){
         }, function onFail(message){
             alert("Opps, not successful" + message);
         }, {
-            quality: 90,
-            targetWidth: 480,
-            targetHeight: 480,
+            quality: 50,
+            targetWidth: 370,
+            targetHeight: 180,
             destinationType: navigator.camera.DestinationType.DATA_URL,
-            correctOrientation: true
+            correctOrientation: true,
+            encodingType: Camera.EncodingType.PNG,
+        });
+
+    }else{
+
+    }
+
+};
+
+function takePictureBack(){
+    var image = document.getElementById('imageBack');
+    if(image.src != null){
+
+        navigator.camera.getPicture(function onSuccess(imageData){
+//            alert("Successfully get data" + imageData);
+
+            image.src = "data:image/jpeg;base64," + imageData;
+            tempImageData = imageData;
+            //step trigger
+            stepTrigger = 1;
+        }, function onFail(message){
+            alert("Opps, not successful" + message);
+        }, {
+            quality: 50,
+            targetWidth: 370,
+            targetHeight: 180,
+            destinationType: navigator.camera.DestinationType.DATA_URL,
+            correctOrientation: true,
+            encodingType: Camera.EncodingType.PNG,
         });
 
     }else{
@@ -68,7 +104,10 @@ function resizeDiv(){
     vpw = $(window).width();
     vph = $(window).height();
     $('#mainBody').css({'height': (vph - 50) + 'px'});
-    $('#image').css({'height': (vph - 280) + 'px'})
+    $('#image').css({'height': (vph - 280) + 'px'});
+
+    tempWidth = vpw;
+    tempHeight = vph;
 }
 
 //barcode scan functions

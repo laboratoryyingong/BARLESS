@@ -166,44 +166,80 @@
 
         <div class="clear"></div>
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <div class="carousel-text">
-                  <span>Select a barcode printer that is fully capable of meeting requirements for durability, legibility, and speed of barcode generation.<br><small>--Max.GONG</small></span>
-                  <br>
-
-              </div>
+        <div class="container">
+          <div class="row">
+<!--
+            <div class='col-md-offset-2 col-md-8 text-center'>
+            <h4>Barcode Wallet</h4>
             </div>
-            <div class="item">
-             <div class="carousel-text">
-                 <span>Choosing the right barcode label can make a huge difference in your cost-savings.<br><small>-- Sales manager</small></span>
-              </div>
-            </div>
-            <div class="item">
-             <div class="carousel-text">
-                 <span>Barcodes became commercially successful when they were used to automate supermarket checkout systems.<br><small>--Barcode History</small></span>
-              </div>
-            </div>
-
+-->
           </div>
+          <div class='row'>
+            <div class='col-md-offset-2 col-md-8'>
+              <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#quote-carousel" data-slide-to="1"></li>
+                  <li data-target="#quote-carousel" data-slide-to="2"></li>
+                </ol>
 
-          <!-- Controls -->
-          <a id="leftArrow" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="fa fa-chevron-left"></span>
-          </a>
-          <a id="rightArrow" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="fa fa-chevron-right"></span>
-          </a>
-        </div> <!-- Carousel -->
+                <!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner">
+
+                  <!-- Quote 1 -->
+                  <div class="item active">
+                    <blockquote>
+                      <div class="row">
+                        <div class="col-sm-3 text-center">
+                          <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
+                        </div>
+                        <div class="col-sm-9">
+                          <p>Note 1</p>
+                          <small>Someone famous</small>
+                        </div>
+                      </div>
+                    </blockquote>
+                  </div>
+                  <!-- Quote 2 -->
+                  <div class="item">
+                    <blockquote>
+                      <div class="row">
+                        <div class="col-sm-3 text-center">
+                          <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                        </div>
+                        <div class="col-sm-9">
+                          <p>Note 2</p>
+                          <small>Someone famous</small>
+                        </div>
+                      </div>
+                    </blockquote>
+                  </div>
+                  <!-- Quote 3 -->
+                  <div class="item">
+                    <blockquote>
+                      <div class="row">
+                        <div class="col-sm-3 text-center">
+                          <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                        </div>
+                        <div class="col-sm-9">
+                          <p>Note 3</p>
+                          <small>Someone famous</small>
+                        </div>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+
+                <!-- Carousel Buttons Next/Prev -->
+                <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
     </div>
 <!--end test unit-->
@@ -240,12 +276,6 @@
     <script src="public/javascript/index.js" type="text/javascript"></script>
     <script src="public/javascript/controllers.js" type="text/javascript"></script>
 
-
-    <script>
-    $('.carousel').carousel({
-        interval: 3000
-    })
-    </script>
 
 <!--test unit-->
 <!--    <script src="../public/javascript/Protractor.js" type="text/javascript"></script>-->
